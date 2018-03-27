@@ -1,0 +1,1 @@
+{"version":3,"sources":["assets\\js\\index.js"],"names":["console","log"],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AACAA,QAAQC,GAAR,CAAY,cAAZ","file":"bf48ba526c091d5630be9c43a9674175.map","sourcesContent":["\r\nconsole.log(\"hello world!\");"]}

@@ -1,0 +1,114 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700");
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media screen and (max-width: 698px) {
+  .mobile--hidden {
+    display: none; } }
+
+:root {
+  --TITLE_FONT_SIZE: 1.2rem;
+  --CONTENT_LARGE_FONT_SIZE: 1.6rem;
+  --CONTENT_MEDIUM_FONT_SIZE: 1.8rem; }
+  @media screen and (min-width: 698px) {
+    :root {
+      --TITLE_FONT_SIZE: 1.8rem; } }
+
+body {
+  font-family: Barlow, arial, sans-serif;
+  font-display: swap; }
+
+.nav__list {
+  transform: rotate(180deg); }
+
+.nav__item {
+  transform: rotate(-180deg); }
+
+header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+
+.brand__values {
+  opacity: .5;
+  font-size: var(--CONTENT_LARGE_FONT_SIZE);
+  margin-bottom: 5rem;
+  padding-left: 2rem;
+  padding-right: 2rem; }
+
+.brand__value {
+  display: inline-block; }
+  .brand__value:first-child {
+    font-weight: 300; }
+  .brand__value:last-child {
+    font-weight: 500; }
+
+html {
+  font-size: 62.5%; }
+
+/*
+* =====================================
+* BUTTONS
+* =====================================
+*/
+.button {
+  display: block;
+  width: 100%;
+  padding: 0 2rem;
+  line-height: 8rem;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .1rem;
+  color: white;
+  font-size: var(--TITLE_FONT_SIZE); }
+
+.button--primary {
+  background-color: #F76C4B; }
+
+.button--secondary {
+  background-color: #404652; }
+
+.button--arrowed {
+  background-position: right 20px center;
+  background-repeat: no-repeat; }
+  .button--arrowed--right {
+    background-image: url("cc03c1e82bae429d5482d6f6c01c2a08.svg"); }
+  .button--arrowed--down {
+    background-image: url("64220bcebd7231871456056f85bf9e67.svg"); }

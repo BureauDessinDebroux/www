@@ -1,0 +1,8 @@
+.nav {
+    &__list {
+        transform: rotate(180deg);
+    }
+    &__item {
+        transform: rotate(-180deg);
+    }
+}

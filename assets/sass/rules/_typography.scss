@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700');
+
+$MAIN_FONT : Barlow, arial, sans-serif;
+
+:root {
+    --TITLE_FONT_SIZE : 1.2rem;
+    --CONTENT_LARGE_FONT_SIZE : 1.6rem;
+    --CONTENT_MEDIUM_FONT_SIZE : 1.8rem;
+
+    @media screen and (min-width: 698px) {
+        --TITLE_FONT_SIZE : 1.8rem;
+    }
+}
+
+
+body {
+    font-family: $MAIN_FONT;
+    font-display: swap;
+}
