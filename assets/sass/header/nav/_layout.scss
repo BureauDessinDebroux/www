@@ -1,8 +1,95 @@
+$MOBILE_NAV_BACKGROUND  : $PRIMARY_COLOR;
+$MOBILE_NAV_OVERLAY     : $SECONDARY_COLOR;
+
+.nav {
+    &__trigger {
+        position: fixed;
+        top: 2rem; right: 2rem;
+        z-index: 2;
+    }
+
+    &__list {
+        background-color: $PRIMARY_COLOR;
+        padding: 8rem 0;
+        
+        position: fixed;
+        top: 0;
+        right: 0; left: 0;
+    }
+
+    &__link {
+       text-align: center;
+       font-size: $MOBILE_BASE;
+       line-height: 1;
+       height: 8rem;
+
+       display: flex;
+    }
+}
+
 .nav {
     &__list {
-        transform: rotate(180deg);
+        z-index: -1;
+        opacity: 0;
+        visibility: 0;
+        transform: translateY(-100px);
+
+        transition: visibility 0s linear .3s, z-index 0s linear .3s, opacity .2s linear .1s, transform .2s ease-out .1s;
     }
-    &__item {
-        transform: rotate(-180deg);
+    &__content {
+        &--outter {
+            overflow: hidden;
+            margin: auto;
+        }
+        &--inner {
+            display: inline-block;
+            transform: translateY(20px);
+            transition: transform .2s ease-out;
+        }
+    }
+    &::after {
+        display: block; content: '';
+
+        position: fixed;
+        top: 0; bottom: 0;
+        right: 0; left: 0;
+        
+        background-color: rgba($MOBILE_NAV_OVERLAY, 0);
+        z-index: -1;
+        transition: background-color .2s linear, z-index 0s linear .3s;
+    }
+}
+
+.nav {
+    &--is-visible {
+        .nav {
+            &__list {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: 1px;
+                z-index: 1;
+
+                transition: opacity .2s linear, transform .2s ease-out .1s;
+            }
+            &__content {
+                &--inner {
+                    transform: translateY(0);
+                    transition: transform .2s ease-out .3s;
+                }
+            }
+        }
+        &::after {
+            z-index: 0;
+            background-color: rgba($MOBILE_NAV_OVERLAY, 0.9);
+            transition: background-color .2s linear;
+        }
+    }
+}
+
+body, html {
+    &.no-scroll {
+        overflow: hidden !important;
+        position: relative;
+        height: 100%;
     }
 }

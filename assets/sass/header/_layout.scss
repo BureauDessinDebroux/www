@@ -1,16 +1,22 @@
 @import './nav/layout';
 
+$HEADER_BACKGROUND : $TERTINARY_COLOR;
+
 header {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    background-color: $HEADER_BACKGROUND;
 }
 
 .brand {
+    @include gutter(2rem);
+
     &__values {
         opacity: .5;
-        font-size: var(--CONTENT_LARGE_FONT_SIZE);
+        font-size: $MOBILE_MEDIUM;
         margin-bottom: 5rem;
 
         @include gutter(2rem);
@@ -20,5 +26,31 @@ header {
 
         &:first-child { font-weight: 300; }
         &:last-child { font-weight: 500; }
+    }
+
+    &__tagline {
+        font-size: $MOBILE_LARGE;
+        line-height: 130%;
+
+        @include gutter(2rem);
+        margin-bottom: 2.5rem;
+    }
+    &__name {
+        font-size: $MOBILE_SMALL;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        display: inline-block;
+        margin-bottom: 2.5rem;
+    }
+    &__logo {
+        display: block;
+
+        margin-bottom: 5rem;
+        max-width: 5rem;
+
+        > img {
+            width: 100%;
+        }
     }
 }

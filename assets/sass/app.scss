@@ -3,55 +3,13 @@
 @import 'rules/helpers';
 @import 'rules/typography';
 
+@import 'components/buttons';
+@import 'components/hamburger';
+
 @import 'header/layout';
 
 
 html {
     font-size: 62.5%;
-}
-
-/*
-* =====================================
-* BUTTONS
-* =====================================
-*/
-
-.button {
-    display: block;
-    
-    width: 100%;
-    padding: 0 2rem;
-    line-height: 8rem;
-    
-    text-align: left;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: .1rem;
-
-    color: white;
-
-    font-size: var(--TITLE_FONT_SIZE);
-}
-
-.button {
-    &--primary {
-        background-color: $PRIMARY_COLOR;
-    }
-    &--secondary {
-        background-color: $SECONDARY_COLOR;
-    }
-}
-
-.button {
-    &--arrowed {
-        background-position: right 20px center;
-        background-repeat: no-repeat;
-
-        &--right {
-            background-image: url('../images/arrow--right.svg');
-        }
-        &--down {
-            background-image: url('../images/arrow--down.svg');
-        }
-    }
+    height: 2999px;
 }
