@@ -8,34 +8,44 @@
 </head>
 <body>
     
-    <header>
-        <h1 class="brand">
-            <a href="./index.html" class="brand__logo">
-                <img src="./assets/images/logo.svg" alt="Logo Bureau Dessin Debroux">
-            </a>
-            <span class="brand__name">Bureau <strong class="bold">Dessin Debroux</strong></span>
-        </h1>
-        <h2 class="brand__tagline">Bureau de dessin en architecture, stabilité et techniques spéciales</h2>
-        <ul class="brand__values">
-            <li class="brand__value">Expérience.</li>
-            <li class="brand__value">Dynamisme.</li>
-            <li class="brand__value">Innovation.</li>
-        </ul>
+    <header class="header">
+        <div class="header__content">
+            <h1 class="brand">
+                <a href="./index.html" class="brand__logo">
+                    <img src="./assets/images/logo.svg" alt="Logo Bureau Dessin Debroux">
+                </a>
+                <span class="brand__name">Bureau <strong class="bold">Dessin Debroux</strong></span>
+            </h1>
+            <h2 class="brand__tagline">Bureau de dessin en architecture, stabilité et techniques spéciales</h2>
+            <ul class="brand__values">
+                <li class="brand__value">Expérience.</li>
+                <li class="brand__value">Dynamisme.</li>
+                <li class="brand__value">Innovation.</li>
+            </ul>
+        </div>
         <ul class="cta">
             <li class="cta__item"><a href="#" class="button button--primary button--arrowed button--arrowed--right">Nous contacter</a></li>
             <li class="cta__item"><a href="#" class="button button--secondary button--arrowed button--arrowed--down">Qui sommes-nous</a></li>
         </ul>
         <nav class="nav">
-            <button class="nav__trigger hamburger__wrapper">
+            <a href="#" class="nav__brand tablet--hidden">
+                <img src="./assets/images/logo--white.svg" alt="Logo Bureau Dessin Debroux">
+            </a>
+            <a href="#" class="nav__trigger hamburger__wrapper">
                 <div class="hamburger hamburger--top"></div>
                 <div class="hamburger hamburger--middle"></div>
                 <div class="hamburger hamburger--bottom"></div>
-            </button>
+            </a>
             <ul class="nav__list">
                 <li class="nav__item"><a href="#" class="nav__link button button--primary"><span class="nav__content--outter"><span class="nav__content--inner">Qui sommes-nous</span></span></a></li>
                 <li class="nav__item"><a href="#" class="nav__link button button--primary"><span class="nav__content--outter"><span class="nav__content--inner">Nos services</span></span></a></li>
                 <li class="nav__item"><a href="#" class="nav__link button button--primary"><span class="nav__content--outter"><span class="nav__content--inner">Nous contacter</span></span></a></li>
             </ul>
+            <a href="#" class="nav__scroll tablet--hidden">
+                <div class="nav__scroll--inner">
+                    <img src="./assets/images/arrow--down.svg" alt="Logo Bureau Dessin Debroux">
+                </div>
+            </a>
         </nav>
     </header>
 

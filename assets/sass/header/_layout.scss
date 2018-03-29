@@ -2,8 +2,42 @@
 
 $HEADER_BACKGROUND : $TERTINARY_COLOR;
 
+/*
+* ===========================================
+* FONT-SIZE
+* ===========================================
+*/
+.brand {
+    &__values {
+        font-size: $MOBILE_MEDIUM;
+
+        @include media(tablet-large) {
+            font-size: $DESKTOP_MEDIUM;
+        }
+    }
+    &__tagline {
+        font-size: $MOBILE_LARGE;
+        
+        @include media(tablet-large) {
+            font-size: $DESKTOP_LARGE;
+        }
+    }
+    &__name {
+        font-size: $MOBILE_SMALL;
+
+        @include media(tablet-large) {
+            font-size: $DESKTOP_SMALL;
+        }
+    }
+}
+
 header {
     height: 100vh;
+
+    @include media(tablet) {
+        height: auto;
+    }
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -13,13 +47,20 @@ header {
 
 .brand {
     @include gutter(2rem);
+    @include media(tablet-large) {
+        padding: 0;
+    }
 
     &__values {
         opacity: .5;
-        font-size: $MOBILE_MEDIUM;
         margin-bottom: 5rem;
 
         @include gutter(2rem);
+        
+        @include media(tablet-large) {
+            padding: 0;
+            margin-bottom: 15rem;
+        }
     }
     &__value {
         display: inline-block;
@@ -29,14 +70,16 @@ header {
     }
 
     &__tagline {
-        font-size: $MOBILE_LARGE;
         line-height: 130%;
 
-        @include gutter(2rem);
         margin-bottom: 2.5rem;
+        
+        @include gutter(2rem);
+        @include media(tablet-large) {
+            padding: 0;
+        }
     }
     &__name {
-        font-size: $MOBILE_SMALL;
         text-transform: uppercase;
         letter-spacing: 0.1em;
 
@@ -49,8 +92,46 @@ header {
         margin-bottom: 5rem;
         max-width: 5rem;
 
+        @include media(tablet-large) {
+            margin-top: 15rem;
+        }
+
         > img {
             width: 100%;
+        }
+    }
+}
+
+.cta {
+    @include media(tablet-large) {
+        display: none;
+    }
+}
+
+
+/*
+* ===========================================
+* TABLET-LARGE
+* ===========================================
+*/
+.header {
+    @include media(tablet-large) {
+        &__content {
+            margin: auto 0;
+        }
+        .brand__tagline {
+            max-width: 936px;
+        }
+    }
+}
+
+@include IE() {
+    .header {
+        @include media(tablet-large) {
+            &__content {
+                width: 50%;
+                margin-left: calc(100% / 12);
+            }
         }
     }
 }

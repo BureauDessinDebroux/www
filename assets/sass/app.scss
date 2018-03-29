@@ -1,4 +1,5 @@
 @import 'rules/reset';
+@import 'rules/mediaqueries';
 @import 'rules/colors';
 @import 'rules/helpers';
 @import 'rules/typography';
@@ -12,4 +13,27 @@
 html {
     font-size: 62.5%;
     height: 2999px;
+}
+
+
+body {
+    display: grid;
+    grid-template-columns: 1fr; 
+
+    @include media(tablet-large) {
+        grid-template-columns: repeat(12, 1fr);           
+    }
+
+    .header {
+        @include media(tablet-large) {
+            grid-column: -1 / 1;
+            
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+
+            &__content {
+                grid-column: 2 / -2;
+            }
+        }
+    }
 }

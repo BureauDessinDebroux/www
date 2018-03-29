@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700');
 
-$MAIN_FONT : Barlow, arial, sans-serif;
+$MAIN_FONT      : Barlow, arial, sans-serif;
 
-$MOBILE_SMALL : 1.2rem;
-$MOBILE_BASE : 1.6rem;
-$MOBILE_MEDIUM : 1.8rem;
-$MOBILE_LARGE : 2.4rem;
+$MOBILE_SMALL   : 1.273rem;
+$MOBILE_BASE    : 1.6rem;
+$MOBILE_MEDIUM  : 1.8rem;
+$MOBILE_LARGE   : 2.4rem;
+
+$DESKTOP_SMALL   : 1.273rem;
+$DESKTOP_BASE    : 1.8rem;
+$DESKTOP_MEDIUM  : 3.6rem;
+$DESKTOP_LARGE   : 5.086rem;
 
 @media screen and (min-width: 698px) {
     $TITLE_FONT_SIZE : 1.8rem;

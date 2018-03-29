@@ -6,7 +6,23 @@
     }
 }
 
+.tablet {
+    &--hidden {
+        display: none;
+
+        @include media(tablet-large) {
+            display: block;
+        }
+    }
+}
+
 @mixin gutter($numb) {
     padding-left: $numb;
     padding-right: $numb;
+}
+
+@mixin IE() {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        @content;
+    }
 }
