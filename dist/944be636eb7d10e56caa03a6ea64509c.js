@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({11:[function(require,module,exports) {
+})({26:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],8:[function(require,module,exports) {
+},{}],23:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,21 +132,20 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":11}],5:[function(require,module,exports) {
+},{"./bundle-url":26}],16:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./..\\images\\arrow--right.svg":[["cc03c1e82bae429d5482d6f6c01c2a08.svg",9],9],"./..\\images\\arrow--down.svg":[["64220bcebd7231871456056f85bf9e67.svg",10],10],"_css_loader":8}],7:[function(require,module,exports) {
+},{"./..\\images\\arrow--right.svg":[["cc03c1e82bae429d5482d6f6c01c2a08.svg",24],24],"./..\\images\\arrow--down.svg":[["64220bcebd7231871456056f85bf9e67.svg",12],12],"./..\\images\\logo--background.svg":[["e12b1f5706a950c4dd0bfe37e95ccb0e.svg",31],31],"_css_loader":23}],34:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = mobilecheck;
-console.log("hello world!");
-
+exports.mobilecheck = mobilecheck;
+exports.getPosition = getPosition;
 function mobilecheck() {
     var check = false;
     (function (a) {
@@ -155,18 +154,27 @@ function mobilecheck() {
 
     return check;
 };
-},{}],6:[function(require,module,exports) {
+
+function getPosition(element) {
+    var xPosition = 0;
+    var yPosition = 0;
+
+    while (element) {
+        xPosition += element.offsetLeft - element.scrollLeft + element.clientLeft;
+        yPosition += element.offsetTop - element.scrollTop + element.clientTop;
+        element = element.offsetParent;
+    }
+
+    return { x: xPosition, y: yPosition };
+};
+},{}],20:[function(require,module,exports) {
 'use strict';
 
-var _mobilecheck = require('./mobilecheck.js');
-
-var _mobilecheck2 = _interopRequireDefault(_mobilecheck);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _helpers = require('./helpers.js');
 
 var mobileHeaderHeight = function mobileHeaderHeight() {
     var header = document.querySelector('header'),
-        mobile = (0, _mobilecheck2.default)(),
+        mobile = (0, _helpers.mobilecheck)(),
         height = window.innerHeight;
 
     if (!header) return;
@@ -177,7 +185,35 @@ var mobileHeaderHeight = function mobileHeaderHeight() {
 };
 
 mobileHeaderHeight();
-},{"./mobilecheck.js":7}],4:[function(require,module,exports) {
+
+var stickyHeader = function stickyHeader() {
+    var nav = document.querySelector('.nav'),
+        navPositionY = (0, _helpers.getPosition)(nav).y,
+        navWidth = nav.clientWidth,
+        header = document.querySelector('.header'),
+        previous = window.scrollY;
+
+    window.addEventListener('scroll', function () {
+
+        if (window.scrollY > previous) {
+            if (scrollY >= navPositionY) {
+                header.style.paddingBottom = nav.clientHeight + 'px';
+                nav.style.width = navWidth + 'px';
+                nav.classList.add('nav--is-fixed');
+            }
+        } else {
+            if (scrollY <= navPositionY) {
+                header.style.paddingBottom = 0 + 'px';
+                nav.classList.remove('nav--is-fixed');
+            }
+        }
+
+        previous = window.scrollY;
+    });
+};
+
+stickyHeader();
+},{"./helpers.js":34}],18:[function(require,module,exports) {
 var mobileNavTrigger = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -193,7 +229,7 @@ var mobileNavTrigger = function () {
         html.classList.contains('no-scroll') ? html.classList.remove('no-scroll') : html.classList.add('no-scroll');
     });
 }();
-},{}],2:[function(require,module,exports) {
+},{}],8:[function(require,module,exports) {
 "use strict";
 
 require("./assets/sass/app.scss");
@@ -201,7 +237,7 @@ require("./assets/sass/app.scss");
 require("./assets/js/header.js");
 
 require("./assets/js/mobilenav.js");
-},{"./assets/sass/app.scss":5,"./assets/js/header.js":6,"./assets/js/mobilenav.js":4}],90:[function(require,module,exports) {
+},{"./assets/sass/app.scss":16,"./assets/js/header.js":20,"./assets/js/mobilenav.js":18}],36:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -223,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51421' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51033' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -324,5 +360,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[90,2])
+},{}]},{},[36,8])
 //# sourceMappingURL=/dist/944be636eb7d10e56caa03a6ea64509c.map

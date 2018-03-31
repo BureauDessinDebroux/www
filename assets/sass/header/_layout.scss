@@ -34,7 +34,7 @@ $HEADER_BACKGROUND : $TERTINARY_COLOR;
 header {
     height: 100vh;
 
-    @include media(tablet) {
+    @include media(tablet-large) {
         height: auto;
     }
 
@@ -43,6 +43,9 @@ header {
     justify-content: flex-end;
 
     background-color: $HEADER_BACKGROUND;
+    background-image: url('../images/logo--background.svg');
+    background-repeat: no-repeat;
+    background-position: right -18rem top -13rem;
 }
 
 .brand {
