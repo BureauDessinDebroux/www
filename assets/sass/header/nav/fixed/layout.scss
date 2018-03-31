@@ -1,0 +1,29 @@
+$BRAND_EASING : cubic-bezier(.11, .42, .28, 1);
+
+.nav {
+    &__brand {
+        overflow: hidden;
+
+        &:hover { > img { opacity: 1; } }
+
+        > img {
+            opacity: 0.5;
+            transform: translateY(80px);
+            transition: .5s $BRAND_EASING;
+        }
+    }
+
+    &--is-fixed {
+        position: fixed;
+        top: 0; left: 0;
+
+        .nav {
+            &__brand {
+                > img {
+                    transform: translateY(0px);
+                    transition: .3s $BRAND_EASING;
+                }
+            }
+        }
+    }
+}

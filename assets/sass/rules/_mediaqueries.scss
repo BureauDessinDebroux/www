@@ -1,0 +1,32 @@
+$mediaqueries: true;
+
+@mixin media($point) {
+  @if ($mediaqueries) {
+
+    $mobile-small   : "(max-width: 320px)";
+    $mobile         : "(max-width: 767px)";
+    $tablet         : "(min-width: 768px)";
+    $tablet-large   : "(min-width: 1024px)";
+    $desktop        : "(min-width: 1440px)";
+    $desktop-large  : "(min-width: 1920px)";
+  
+    @if $point == mobile-small {
+        @media #{$mobile-small} { @content; }
+    }
+    @if $point == mobile {
+        @media #{$mobile} { @content; }
+    }
+    @if $point == tablet {
+        @media #{$tablet} { @content; }
+    }
+    @else if $point == tablet-large {
+        @media #{$tablet-large} { @content; }
+    }
+    @else if $point == desktop {
+        @media #{$desktop}  { @content; }
+    }
+    @else if $point == desktop-large {
+        @media #{$desktop-large}  { @content; }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+/*
+* =====================================
+* BUTTONS
+* =====================================
+*/
+
+.button {
+    display: block;
+    
+    width: 100%;
+    padding: 0 2rem;
+
+    line-height: 8rem;
+
+    @include media(mobile) {
+        line-height: 8rem;
+    }
+
+    @include media(mobile-small) {
+        line-height: 6rem;
+    }
+    
+    text-align: left;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .1rem;
+
+    color: white;
+
+    font-size: $MOBILE_SMALL;
+}
+
+.button {
+    &--primary {
+        background-color: $PRIMARY_COLOR;
+    }
+    &--secondary {
+        background-color: $SECONDARY_COLOR;
+    }
+}
+
+.button {
+    &--arrowed {
+        background-position: right 20px center;
+        background-repeat: no-repeat;
+
+        &--right {
+            background-image: url('../images/arrow--right.svg');
+        }
+        &--down {
+            background-image: url('../images/arrow--down.svg');
+        }
+    }
+}

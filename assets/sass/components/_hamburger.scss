@@ -1,0 +1,52 @@
+.hamburger {
+    width: 24px; height: 2px;
+    background: $PRIMARY_COLOR;
+    transition: all .2s ease-out, background-color .4s linear .1s;
+
+    &__wrapper {
+      cursor: pointer;
+      -webkit-appearance: none;
+      background: transparent;
+      border: none;
+      padding: 0;
+    
+      width: 24px; height: 24px;
+      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      &:focus {
+          outline: 0;
+      }
+      &:active {
+          outline: 0;
+      }
+    }
+  }
+  
+  
+  
+.hamburger__wrapper {
+    &--is-active {
+        .hamburger {
+            background-color: $TERTINARY_COLOR;
+
+            &--top, &--bottom {
+                width: 31px; height: 3px;
+                transition: all .2s ease-out;
+            }
+            &--top {
+                transform: rotate(45deg);
+                transform-origin: top left;
+            }
+            &--middle {
+                opacity: 0;
+            }
+            &--bottom {
+                transform: rotate(-45deg);
+                transform-origin: bottom left;
+            }
+        }
+    }
+}

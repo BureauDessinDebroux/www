@@ -1,0 +1,112 @@
+$TABLET_NAV_BACKGROUND : $PRIMARY_COLOR;
+
+.nav {
+    @include media(tablet-large) {
+        grid-column: span 12;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        @include media(desktop) {
+            grid-column: span 6;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        background-color: $TABLET_NAV_BACKGROUND;
+
+        &__trigger {
+            display: none;
+        }
+    
+        &__list {
+            position: relative;
+            opacity: 1; visibility: visible;
+            transform: none;
+            z-index: 0;
+
+            padding: 0;
+            display: flex;
+
+            grid-column: span 10;
+            @include media(desktop) {
+                grid-column: span 4;
+            }
+
+            border-left: 1px solid rgba(white, 0.2);
+            padding-left: 1rem;
+        }
+    
+        &__link {
+           font-size: $DESKTOP_SMALL;
+           padding: 0;
+           padding-left: 2.5rem;
+           padding-right: 2.5rem;
+            
+           > * {
+               margin-left: 0;
+           }
+        }
+
+        &__brand {
+            display: flex;
+            
+            > img {
+                margin: auto;
+                max-width: 3.5rem;
+            }
+        }
+        
+        &__scroll {
+            display: flex;
+            grid-column: span auto;
+
+            @include IE() {
+                display: none;
+            }
+            
+            &--inner {
+                display: flex;
+                margin: auto 2rem auto auto;
+                width: 3.5rem; height: 3.5rem;
+
+                border-radius: 50%;
+                border: 1px solid rgba(white, 0.3);
+
+                > img {
+                    margin: auto;
+                    max-height: 1.2rem;
+                }
+            }
+        }
+
+        &__content {
+            &--inner {
+                transform: none;
+            }
+        }
+    }
+}
+
+
+@include IE() {
+    .nav {
+        &__brand {
+            display: none;
+        }
+
+        &__list {
+            margin-left: calc(100% / 12);
+        }
+
+        &__link {
+            height: auto;
+        }
+
+        &__content {
+            &--inner {
+                vertical-align: middle;
+                height: 100%;
+                padding-top: 3.5rem;
+                padding-bottom: 3.5rem;
+            }
+        }
+    }
+}

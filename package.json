@@ -1,0 +1,31 @@
+{
+  "name": "bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^8.2.0",
+    "node-sass": "^4.8.3",
+    "parcel-bundler": "^1.6.2",
+    "postcss-modules": "^1.1.0",
+    "reset-css": "^3.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "postcss-modules": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wollsale/bureauDessinDebroux-WWW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wollsale/bureauDessinDebroux-WWW/issues"
+  },
+  "homepage": "https://github.com/wollsale/bureauDessinDebroux-WWW#readme"
+}
