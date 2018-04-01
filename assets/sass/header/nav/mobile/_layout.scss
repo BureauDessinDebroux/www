@@ -55,8 +55,9 @@ $MOBILE_NAV_OVERLAY     : $SECONDARY_COLOR;
         right: 0; left: 0;
         
         background-color: rgba($MOBILE_NAV_OVERLAY, 0);
+        visibility: hidden;
         z-index: -1;
-        transition: background-color .4s linear .1s, z-index 0s linear .8s;
+        transition: background-color .4s linear .1s, z-index 0s linear .8s, visibility 0s linear .8s;
     }
 }
 
@@ -79,9 +80,10 @@ $MOBILE_NAV_OVERLAY     : $SECONDARY_COLOR;
             }
         }
         &::after {
+            visibility: visible;
             z-index: 0;
             background-color: rgba($MOBILE_NAV_OVERLAY, 0.9);
-            transition: background-color .2s linear;
+            transition: visibility 0s linear, background-color .2s linear;
         }
     }
 }

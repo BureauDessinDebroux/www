@@ -1,1 +1,8 @@
 @import 'mobile/layout';
+@import 'slider/layout';
+
+.about {
+    &__projects {
+        grid-column: 3 / -1;
+    }
+}

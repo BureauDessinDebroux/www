@@ -1,3 +1,7 @@
+.visually--hidden {
+    visibility: hidden;
+}
+
 .mobile {
     &--hidden {
         display: none;

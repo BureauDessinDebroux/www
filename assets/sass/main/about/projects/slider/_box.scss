@@ -1,0 +1,17 @@
+$SLIDER_BOX_BACKGROUND  : white;
+$SLIDER_BOX_COLOR       : $SECONDARY_COLOR;
+
+.box {
+    color: $SLIDER_BOX_COLOR;
+
+    &__header {
+        background: $SLIDER_BOX_BACKGROUND;
+        padding: 2.6rem 4rem;
+    }
+
+    &__content {
+        background: $SLIDER_BOX_BACKGROUND;
+        border-top: 1px solid rgba($SLIDER_BOX_COLOR, 0.1);
+        padding: 4rem;
+    }
+}

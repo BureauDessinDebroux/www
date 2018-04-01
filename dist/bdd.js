@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({39:[function(require,module,exports) {
+})({57:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -100,7 +100,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],32:[function(require,module,exports) {
+},{}],51:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -146,7 +146,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":39}],33:[function(require,module,exports) {
+},{"./helpers.js":57}],48:[function(require,module,exports) {
 var mobileNavTrigger = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -162,13 +162,156 @@ var mobileNavTrigger = function () {
         html.classList.contains('no-scroll') ? html.classList.remove('no-scroll') : html.classList.add('no-scroll');
     });
 }();
-},{}],12:[function(require,module,exports) {
+},{}],104:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.imagesSlider = imagesSlider;
+function imagesSlider() {
+    var active_project = document.querySelector('.slider__panel--is-active'),
+        active_project_dataset = active_project.dataset.project,
+        active_project_images = void 0;
+
+    var all_images_set = document.querySelectorAll('.images__set');
+
+    for (var _i = 0; _i < all_images_set.length; _i++) {
+        var element = all_images_set[_i];
+        element.classList.remove('images__set--is-active');
+
+        if (element.dataset.project == active_project_dataset) {
+            element.classList.add('images__set--is-active');
+            active_project_images = element;
+        }
+    }
+
+    console.log(active_project_images);
+
+    var slides = active_project_images.querySelectorAll('img'),
+        slides__wrapper = document.querySelector('.images__load'),
+        current_slide = 0,
+        playing = true,
+        previous_slide = slides.length - 1,
+        BUTTON_NEXT = document.querySelector('.images__controls--next'),
+        BUTTON_PREVIOUS = document.querySelector('.images__controls--previous'),
+        LOADER = document.querySelector('.images__loader');
+
+    console.log(slides);
+
+    // SINGLE
+    function pauseSlideshow() {
+        playing = false;
+    }
+    function playSlideshow() {
+        playing = true;
+    }
+    function nextSlide() {
+        goToSlide(current_slide + 1);
+    }
+    function previousSlide() {
+        goToSlide(current_slide - 1);
+    }
+
+    // CHANGER
+    function goToSlide(n) {
+        slides[current_slide].className = 'images__panel';
+        slides[previous_slide].className = 'images__panel';
+
+        current_slide = (n + slides.length) % slides.length;
+        previous_slide = (n - 1 + slides.length) % slides.length;
+
+        slides[current_slide].className += ' images__panel--is-active';
+        slides[previous_slide].className += ' images__panel--is-transitionning';
+    }
+
+    // REQUEST ANIMATION FRAME
+    var i = 0,
+        sliderLooperRequest = void 0,
+        timing = 500;
+
+    function sliderLooper() {
+        if (i < timing) {
+            LOADER.style.width = slides__wrapper.clientWidth / timing * i + 'px';
+            i++;
+        } else {
+            i = 0;
+            nextSlide();
+        }
+
+        sliderLooperRequest = requestAnimationFrame(sliderLooper);
+    }
+
+    sliderLooperRequest = requestAnimationFrame(sliderLooper);
+
+    // EVENTS
+    BUTTON_NEXT.addEventListener('click', function () {
+        nextSlide();
+        i = 0;
+    });
+    BUTTON_PREVIOUS.addEventListener('click', function () {
+        previousSlide();
+        i = 0;
+    });
+};
+},{}],102:[function(require,module,exports) {
+'use strict';
+
+var _imagesSet = require('./imagesSet.js');
+
+var projectSlider = function () {
+    var slides = document.querySelectorAll('.slider__panel'),
+        images_set = document.querySelectorAll('.images__set'),
+        current_slide = 0,
+        previous_slide = slides.length - 1,
+        BUTTON_NEXT = document.querySelector('.slider__controls--next'),
+        BUTTON_PREVIOUS = document.querySelector('.slider__controls--previous');
+
+    (0, _imagesSet.imagesSlider)();
+
+    // SINGLE
+    function nextSlide() {
+        goToSlide(current_slide + 1);
+    }
+    function previousSlide() {
+        goToSlide(current_slide - 1);
+    }
+
+    // CHANGER
+    function goToSlide(n) {
+        slides[current_slide].className = 'slider__panel';
+        slides[previous_slide].className = 'slider__panel';
+
+        current_slide = (n + slides.length) % slides.length;
+        previous_slide = (n - 1 + slides.length) % slides.length;
+
+        slides[current_slide].className += ' slider__panel--is-active';
+        slides[previous_slide].className += ' slider__panel--is-transitionning';
+    }
+
+    // EVENTS
+    BUTTON_NEXT.addEventListener('click', function () {
+        nextSlide();
+        (0, _imagesSet.imagesSlider)();
+        var i = 0;
+    });
+    BUTTON_PREVIOUS.addEventListener('click', function () {
+        previousSlide();
+        (0, _imagesSet.imagesSlider)();
+        var i = 0;
+    });
+}();
+},{"./imagesSet.js":104}],20:[function(require,module,exports) {
 "use strict";
 
 require("./assets/js/header.js");
 
 require("./assets/js/mobilenav.js");
-},{"./assets/js/header.js":32,"./assets/js/mobilenav.js":33}],40:[function(require,module,exports) {
+
+require("./assets/js/slider/imagesSet.js");
+
+require("./assets/js/slider/projects.js");
+},{"./assets/js/header.js":51,"./assets/js/mobilenav.js":48,"./assets/js/slider/imagesSet.js":104,"./assets/js/slider/projects.js":102}],204:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -190,7 +333,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64760' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50927' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -291,5 +434,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[40,12])
+},{}]},{},[204,20])
 //# sourceMappingURL=/dist/bdd.map

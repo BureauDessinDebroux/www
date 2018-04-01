@@ -1,0 +1,57 @@
+.slider {
+    &__controls {
+        display: flex;
+        justify-content: space-between;
+
+        > button {
+            -webkit-appearance: none;
+            border: none;
+            cursor: pointer;
+            background: none;
+            
+            @include smallTitle;
+            color: $SECONDARY_COLOR;
+            opacity: 1;
+            font-size: 1rem;
+            font-weight: 500;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.images {
+    &__controls {
+        grid-column: -1 / 1;
+        display: flex;
+        justify-content: flex-end;
+        transform:translateY(-8.7rem);
+        
+        button {
+            width: 8rem; height: 8rem;
+            background-color: $PRIMARY_COLOR;
+            -webkit-appearance: none;
+            border: none;
+            cursor: pointer;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.images__controls {
+                &--previous {
+                    background-image: url('../images/arrow_strict--left.svg');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                &--next {
+                    background-image: url('../images/arrow_strict--right.svg');
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+        }
+    }
+}

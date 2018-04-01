@@ -1,0 +1,49 @@
+@import 'box';
+@import 'controls';
+@import 'panels';
+
+.slider {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+
+    position: relative;
+
+    @include IE() {
+        margin-left: calc((100% / 12) * 1);
+    }
+
+    &__box {
+        grid-column: 1 / 4;
+        grid-row: row 1;
+        z-index: 2;
+
+        @include IE() {
+            max-width: calc((100% / 12) * 3);
+        }
+    }
+
+    &__images {
+        grid-column: 3 / -1;
+        grid-row: row 1;
+
+        margin-top: 8rem;
+        z-index: 1;
+
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+
+        > .images__load {
+            grid-column: 2 / -1;
+
+            > .images__loader {
+                width: 0; height: 5px;
+                background: red;
+            }
+        }
+
+        > .images__set {
+            grid-column: -1 / 1;
+        }
+    }
+}
