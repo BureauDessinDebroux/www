@@ -30,7 +30,7 @@
 .hamburger__wrapper {
     &--is-active {
         .hamburger {
-            background-color: $TERTINARY_COLOR;
+            background-color: $TERTIARY_COLOR;
 
             &--top, &--bottom {
                 width: 31px; height: 3px;

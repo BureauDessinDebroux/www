@@ -1,6 +1,6 @@
 @import './nav/layout';
 
-$HEADER_BACKGROUND : $TERTINARY_COLOR;
+$HEADER_BACKGROUND : $TERTIARY_COLOR;
 
 /*
 * ===========================================
@@ -36,6 +36,7 @@ header {
 
     @include media(tablet-large) {
         height: auto;
+        @include background(light);
     }
 
     display: flex;
@@ -43,9 +44,6 @@ header {
     justify-content: flex-end;
 
     background-color: $HEADER_BACKGROUND;
-    background-image: url('../images/logo--background.svg');
-    background-repeat: no-repeat;
-    background-position: right -18rem top -13rem;
 }
 
 .brand {
@@ -108,6 +106,12 @@ header {
 .cta {
     @include media(tablet-large) {
         display: none;
+    }
+
+    &__item:last-child {
+        > a {
+            border-bottom: 1px solid rgba($TERTIARY_COLOR, 0.1);
+        }
     }
 }
 

@@ -2,9 +2,10 @@ $TABLET_NAV_BACKGROUND : $PRIMARY_COLOR;
 
 .nav {
     @include media(tablet-large) {
-        grid-column: span 12;
+        grid-column: span 10;
         display: grid;
         grid-template-columns: repeat(12, 1fr);
+
         @include media(desktop) {
             grid-column: span 6;
             grid-template-columns: repeat(6, 1fr);

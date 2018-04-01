@@ -9,13 +9,14 @@ $BRAND_EASING : cubic-bezier(.11, .42, .28, 1);
         > img {
             opacity: 0.5;
             transform: translateY(80px);
-            transition: .5s $BRAND_EASING;
+            transition: 1s $BRAND_EASING;
         }
     }
 
     &--is-fixed {
         position: fixed;
         top: 0; left: 0;
+        z-index: 1;
 
         .nav {
             &__brand {

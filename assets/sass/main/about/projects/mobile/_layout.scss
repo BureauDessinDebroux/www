@@ -1,0 +1,43 @@
+$CARD_BACKGROUND    : #ffffff;
+$CARD_COLOR         : $SECONDARY_COLOR; 
+
+.projects {
+    @include media(mobile) {
+        &__wrapper {
+            grid-column: span 12;
+            overflow: hidden;
+        }
+        &__title {
+            margin-bottom: 3rem;
+        }
+        &__list {
+            @include horizontalScroll;
+            padding-right: 2rem; 
+        }
+        &__item {
+            max-width: calc((100% / 12) * 11.5);
+        }
+    }
+}
+
+.project {
+    padding-right: 1rem;
+
+    &:last-child {
+        padding-right: 2rem;
+    }
+
+    &__wrapper {
+        padding: 2rem;
+        background: $CARD_BACKGROUND;
+        color: $CARD_COLOR;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        margin-bottom: 5rem;
+        font-weight: 500;
+    }
+}

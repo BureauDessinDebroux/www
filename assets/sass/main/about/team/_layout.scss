@@ -1,0 +1,62 @@
+.team {
+    &__wrapper {
+        overflow: hidden;
+
+        grid-column: span 12;
+
+        @include media(tablet-large) {
+            grid-column: 3 / -1;
+        }
+    }
+
+    &__title {
+        margin-bottom: 3rem;
+    }
+
+    &__list {
+        display: flex;
+
+        @include media(mobile) {
+            @include horizontalScroll;
+
+            &::after {
+                display: block; content: '';
+                width: 10px; height: 100px;
+                flex: 0 0 auto;
+            }
+        }
+    }
+    &__item {
+        @include media(mobile) {
+            flex: 0 0 auto;
+            max-width: calc((100% / 12) * 9);
+            
+            figure {
+                padding-right: 1rem;
+            }
+        }
+
+        @include media(tablet-large) {
+            &:not(:last-child) {
+                > figure {
+                    padding-right: 2rem;
+                }
+            }
+        }
+
+        figure {            
+            img {
+                width: 100%;
+                opacity: 0.7;
+            }
+    
+            figcaption {
+                font-size: $MOBILE_SMALL;
+    
+                @include media(tablet-large) {
+                    font-size: $DESKTOP_SMALL;
+                }
+            }
+        }
+    }
+}

@@ -71,74 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({29:[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],26:[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":29}],20:[function(require,module,exports) {
-
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"./..\\images\\arrow--right.svg":[["cc03c1e82bae429d5482d6f6c01c2a08.svg",27],27],"./..\\images\\arrow--down.svg":[["64220bcebd7231871456056f85bf9e67.svg",12],12],"./..\\images\\logo--background.svg":[["e12b1f5706a950c4dd0bfe37e95ccb0e.svg",28],28],"_css_loader":26}],24:[function(require,module,exports) {
+})({39:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -167,7 +100,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],16:[function(require,module,exports) {
+},{}],32:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -213,7 +146,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":24}],18:[function(require,module,exports) {
+},{"./helpers.js":39}],33:[function(require,module,exports) {
 var mobileNavTrigger = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -229,15 +162,13 @@ var mobileNavTrigger = function () {
         html.classList.contains('no-scroll') ? html.classList.remove('no-scroll') : html.classList.add('no-scroll');
     });
 }();
-},{}],8:[function(require,module,exports) {
+},{}],12:[function(require,module,exports) {
 "use strict";
-
-require("./assets/sass/app.scss");
 
 require("./assets/js/header.js");
 
 require("./assets/js/mobilenav.js");
-},{"./assets/sass/app.scss":20,"./assets/js/header.js":16,"./assets/js/mobilenav.js":18}],30:[function(require,module,exports) {
+},{"./assets/js/header.js":32,"./assets/js/mobilenav.js":33}],40:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -259,7 +190,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53856' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64760' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -360,5 +291,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[30,8])
+},{}]},{},[40,12])
 //# sourceMappingURL=/dist/bdd.map

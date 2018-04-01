@@ -1,7 +1,15 @@
 .mobile {
     &--hidden {
-        @media screen and (max-width: 698px) {
-            display: none;
+        display: none;
+
+        @include media(tablet) {
+            display: block;
+        }
+    }
+    &--visible {
+        display: none;
+        @include media(mobile) {
+            display: block;
         }
     }
 }
@@ -24,5 +32,29 @@
 @mixin IE() {
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
         @content;
+    }
+}
+
+@mixin background($background) {
+    @if $background == dark {
+        background-image: url('../images/logo--background--dark.svg');
+    }
+    @if $background == light {
+        background-image: url('../images/logo--background.svg');
+    }
+
+    background-repeat: no-repeat;
+    background-position: right -18rem top -13rem;
+}
+
+@mixin horizontalScroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    & > * {
+        flex: 0 0 auto;
     }
 }

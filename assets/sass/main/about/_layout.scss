@@ -1,0 +1,131 @@
+@import 'content/layout';
+@import 'team/layout';
+@import 'projects/layout';
+
+/*
+* =========================================
+* GRID LAYOUT
+* =========================================
+*/
+
+.about {
+    grid-column: span 12;
+
+    @include media(tablet-large) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    &__title {
+        grid-column: span 12;
+
+        @include media(tablet-large) {
+            grid-column: 2 / 7;
+        }
+    }
+    &__resume {
+        grid-column: span 12;
+        
+        @include media(tablet-large) {
+            grid-column: 2 / 8;
+        }
+        @include media(desktop) {
+            grid-column: 2 / 8;
+        }
+    }
+    &__content {
+        grid-column: span 12;
+        
+        @include media(tablet-large) {
+            grid-column: 3 / 9;
+        }
+
+        @include media(tablet) {
+            display: flex;
+        }
+
+        > p {
+            flex-basis: 50%;
+
+            &:first-child {
+                margin-right: 3rem;
+            }
+        }
+    }
+}
+
+
+@include IE() {
+    .about {
+        @include media(tablet-large) {
+            padding-left: calc(100% / 12);
+
+            &__title, &__resume {
+                max-width: calc((100% / 12) * 6);
+            }
+            &__content {
+                max-width: calc((100% / 12) * 8);
+                margin-left: calc((100% / 12) * 1);
+            }
+            &__team {
+                margin-left: calc((100% / 12) * 1);
+            }
+        }
+
+        @include media(desktop) {
+            &__title, &__resume {
+                max-width: calc((100% / 12) * 6);
+            }
+            &__content {
+                max-width: calc((100% / 12) * 7);
+            }
+        }
+    }
+}
+
+
+/*
+* =========================================
+* BOX LAYOUT
+* =========================================
+*/
+
+.about {
+    padding-top: 10rem;
+    
+    &__content, &__resume {
+        @include media(mobile) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+    
+    .team {
+        @include media(mobile) {
+            &__wrapper {
+                margin-bottom: 10rem;
+            }
+            &__title {
+                padding-left: 2rem;
+            }
+            &__list {
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    .projects {
+        @include media(mobile) {
+            &__title {
+                padding-left: 2rem;
+            }
+            &__list {
+                padding-left: 2rem;
+            }
+        }
+    }
+
+    @include media(mobile) {
+        padding-bottom: 15rem;
+    }
+}

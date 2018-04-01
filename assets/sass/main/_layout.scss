@@ -1,0 +1,10 @@
+@import 'about/layout';
+
+.main {
+    grid-column: span 12;
+    
+    @include media(tablet-large) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+}

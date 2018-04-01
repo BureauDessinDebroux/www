@@ -12,16 +12,38 @@ $DESKTOP_BASE    : 1.8rem;
 $DESKTOP_MEDIUM  : 3.6rem;
 $DESKTOP_LARGE   : 5.086rem;
 
-@media screen and (min-width: 698px) {
-    $TITLE_FONT_SIZE : 1.8rem;
+
+html {
+    font-size: 62.5%;
+    height: 2999px;
 }
 
 body {
     font-family: $MAIN_FONT;
     font-display: swap;
+    font-size: 1.6rem;
+    line-height: 150%;
+
+    @include media(tablet-large) {
+        font-size: 1.8rem;
+    }
 }
 
-
 .bold {
-    font-weight: 700;
+    font-weight: 500;
+}
+
+.title {
+    &--capsed {
+        text-transform: uppercase;
+        font-size: 1.275rem;
+        letter-spacing: 0.1em;
+    }
+}
+
+@mixin smallTitle {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.5;
+    color: #ffffff;
 }

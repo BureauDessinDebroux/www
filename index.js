@@ -1,4 +1,4 @@
-import "./assets/sass/app.scss";
+//import "./assets/sass/app.scss";
 
 import "./assets/js/header.js";
 
