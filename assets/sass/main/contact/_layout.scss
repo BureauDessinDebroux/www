@@ -1,0 +1,74 @@
+@import 'form/layout';
+
+$CONTACT_BACKGROUND : $TERTIARY_COLOR;
+
+/*
+* =========================================
+* GRID LAYOUT
+* =========================================
+*/
+.contact {
+    grid-column: span 12;
+}
+
+
+/*
+* =========================================
+* BASIC LAYOUT
+* =========================================
+*/
+
+.contact {
+    @include media(mobile) {
+        padding-top: 15rem;
+    }
+
+    &__tagline {
+        font-size: $MOBILE-MEDIUM;
+        line-height: 150%;
+
+        @include media(mobile) {
+            padding: 0 2rem;
+        }
+
+        @include media(tablet) {
+            font-size: $DESKTOP-MEDIUM;
+            line-height: 130%;
+        }
+
+        &--first {
+            padding-left: 0;
+        }
+    }
+}
+
+
+.contact {
+    &__cta {
+        margin-top: 5rem;
+    }
+
+    &__wrapper {
+        @extend .services__wrapper;
+    }
+    &__sidebar {
+        @extend .services__sidebar;
+    }
+    &__render {
+        @extend .services__render;
+        
+        > * {
+            grid-column: 2 / 6;
+        }
+    }
+
+    > .grid > .section__title {
+        @include media(tablet) {
+            grid-column: span 4;
+            background-color: $TERTIARY_COLOR;
+            opacity: 1;
+            padding-left: calc((100% / 4) * 1);
+            padding-bottom: 5rem;
+        }
+    }
+}

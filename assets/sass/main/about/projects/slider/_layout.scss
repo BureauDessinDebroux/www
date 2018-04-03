@@ -3,9 +3,11 @@
 @import 'panels';
 
 .slider {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(auto, 1fr);
+    @include media(tablet) {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(auto, 1fr);
+    }
 
     position: relative;
 
@@ -14,12 +16,15 @@
     }
 
     &__box {
-        grid-column: 1 / 4;
+        grid-column: 1 / 5;
         grid-row: row 1;
         z-index: 2;
 
         @include IE() {
             max-width: calc((100% / 12) * 3);
+        }
+        @include media(tablet-large) {
+            grid-column: 1 / 4;
         }
     }
 
@@ -27,7 +32,7 @@
         grid-column: 3 / -1;
         grid-row: row 1;
 
-        margin-top: 8rem;
+        margin-top: 7.8rem;
         z-index: 1;
 
         display: grid;
@@ -35,10 +40,12 @@
 
         > .images__load {
             grid-column: 2 / -1;
+            transform: translateY(3px);
+            z-index: 2;
 
             > .images__loader {
-                width: 0; height: 5px;
-                background: red;
+                width: 0; height: 3px;
+                background: $PRIMARY_COLOR;
             }
         }
 

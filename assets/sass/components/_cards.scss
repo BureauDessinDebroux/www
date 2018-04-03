@@ -1,0 +1,13 @@
+%list__card--item {
+    background-color: $TERTIARY_COLOR;
+    line-height: 8rem;
+
+    padding-left: 6rem;
+    padding-right: 2rem;
+    background-image: url('../images/list__bullet--check.svg');
+    background-repeat: no-repeat;
+    background-position: left 2rem center;
+    border-left: 2px solid $PRIMARY_COLOR;
+
+    margin-bottom: 0.1rem;
+}

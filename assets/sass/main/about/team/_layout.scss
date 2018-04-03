@@ -3,6 +3,7 @@
         overflow: hidden;
 
         grid-column: span 12;
+        margin-bottom: 150px;
 
         @include media(tablet-large) {
             grid-column: 3 / -1;

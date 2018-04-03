@@ -1,0 +1,29 @@
+/*
+* ========================================
+* SECTION TITLE
+* ========================================
+*/
+.section__title {
+    @extend .button;
+
+    &--dark {
+        @extend .button--secondary;
+    }
+
+    &--light {
+        color: $SECONDARY_COLOR;
+    }
+
+    @include media(mobile) {
+        padding-left: 2rem;
+    }
+    
+    @include media(tablet) {
+        @include smallTitle;
+
+        grid-column: span 12;
+        background-color: transparent;
+        color: $SECONDARY_COLOR;
+        font-size: 1.8rem;
+    }
+}

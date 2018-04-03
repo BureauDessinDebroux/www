@@ -52,3 +52,18 @@
         }
     }
 }
+
+.button {
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+
+    &--phone {
+        background-image: url('../images/phone.svg');        
+    }
+    &--mail {
+        background-image: url('../images/mail.svg');        
+    }
+    &--map {
+        background-image: url('../images/map.svg');        
+    }
+}

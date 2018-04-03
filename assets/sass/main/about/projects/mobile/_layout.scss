@@ -12,10 +12,10 @@ $CARD_COLOR         : $SECONDARY_COLOR;
         }
         &__list {
             @include horizontalScroll;
-            padding-right: 2rem; 
+            padding-right: 2rem;
         }
         &__item {
-            max-width: calc((100% / 12) * 11.5);
+            width: calc((100% / 12) * 11.5);
         }
     }
 }
@@ -28,16 +28,44 @@ $CARD_COLOR         : $SECONDARY_COLOR;
     }
 
     &__wrapper {
+        height: 100%;
         padding: 2rem;
         background: $CARD_BACKGROUND;
         color: $CARD_COLOR;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     &__header {
         display: flex;
         justify-content: space-between;
-        align-content: center;
+        align-items: flex-start;
+        align-content: baseline;
         margin-bottom: 5rem;
         font-weight: 500;
+
+        > .logos {
+        display: flex;
+        align-items: flex-start;
+        align-content: center;
+
+            img {
+                max-height: 4rem;
+                width: auto;
+                margin: auto;
+
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+            }
+        }
     }
+
+    &__title {
+        margin: auto 0;
+    }
+    
+    
 }

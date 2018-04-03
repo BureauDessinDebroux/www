@@ -3,6 +3,10 @@
 
 .about {
     &__projects {
-        grid-column: 3 / -1;
+        grid-column: 1 / -1;
+
+        @include media(desktop) {
+            grid-column: 3 / -1;
+        }
     }
 }

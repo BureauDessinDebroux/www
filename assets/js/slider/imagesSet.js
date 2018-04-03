@@ -26,24 +26,22 @@ export function imagesSlider() {
         BUTTON_PREVIOUS = document.querySelector('.images__controls--previous'),
         LOADER          = document.querySelector('.images__loader');
 
-    console.log(slides);
-
     // SINGLE
-    function pauseSlideshow() { playing = false; }
-    function playSlideshow() {  playing = true; }
-    function nextSlide() {      goToSlide(current_slide + 1); }
-    function previousSlide() {  goToSlide(current_slide - 1); }
+    function pauseSlideshow()   { playing = false; }
+    function playSlideshow()    { playing = true; }
+    function nextSlide()        { goToSlide(current_slide + 1); }
+    function previousSlide()    { goToSlide(current_slide - 1); }
 
     // CHANGER
     function goToSlide(n) {
-    slides[current_slide].className   = 'images__panel';
-    slides[previous_slide].className  = 'images__panel';
-    
-    current_slide                     = (n + slides.length) % slides.length;
-    previous_slide                    = (n - 1 + slides.length) % slides.length;
-    
-    slides[current_slide].className   += ' images__panel--is-active';
-    slides[previous_slide].className  += ' images__panel--is-transitionning';
+        slides[current_slide].className   = 'images__panel';
+        slides[previous_slide].className  = 'images__panel';
+        
+        current_slide                     = (n + slides.length) % slides.length;
+        previous_slide                    = (n - 1 + slides.length) % slides.length;
+        
+        slides[current_slide].className   += ' images__panel--is-active';
+        slides[previous_slide].className  += ' images__panel--is-transitionning';
     }
 
 
@@ -53,15 +51,15 @@ export function imagesSlider() {
         timing = 500;
     
     function sliderLooper() {
-    if (i < timing) {  
-        LOADER.style.width = ((slides__wrapper.clientWidth / timing) * i) + 'px';
-        i++;
-    } else {
-        i = 0;
-        nextSlide();
-    }
-    
-    sliderLooperRequest = requestAnimationFrame(sliderLooper);
+        if (i < timing) {  
+            LOADER.style.width = ((slides__wrapper.clientWidth / timing) * i) + 'px';
+            i++;
+        } else {
+            i = 0;
+            nextSlide();
+        }
+        
+        sliderLooperRequest = requestAnimationFrame(sliderLooper);
     }
 
     sliderLooperRequest = requestAnimationFrame(sliderLooper);
@@ -71,11 +69,11 @@ export function imagesSlider() {
 
     // EVENTS
     BUTTON_NEXT.addEventListener('click', () => {
-    nextSlide()
-    i = 0;
+        nextSlide()
+        i = 0;
     })
     BUTTON_PREVIOUS.addEventListener('click', () => {
-    previousSlide()
-    i = 0;
+        previousSlide()
+        i = 0;
     })
 };

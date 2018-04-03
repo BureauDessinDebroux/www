@@ -12,6 +12,7 @@
     }
     &--visible {
         display: none;
+        
         @include media(mobile) {
             display: block;
         }
@@ -27,6 +28,25 @@
         }
     }
 }
+
+
+.grid {
+    grid-column: span 12;
+    
+    &:not(.mobile--visible) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+    &.mobile--hidden {
+        @include media(mobile) {
+            display: none !important;
+        }
+    }
+}
+
+
+
+
 
 @mixin gutter($numb) {
     padding-left: $numb;

@@ -42,4 +42,25 @@ $ABOUT_BACKGROUND : $SECONDARY_COLOR;
             }
         }
     }
+
+    @include media(tablet) {
+        position: relative;
+
+        &::after {
+            display: block; content: '';
+            height: 300px;
+            background: $TERTIARY_COLOR;
+            position: absolute;
+            left: 0; bottom: 0;
+            width: calc((100% / 12) * 4);
+        }
+        &::before {
+            display: block; content: '';
+            height: 300px;
+            background: white;
+            position: absolute;
+            left: 0; bottom: 0;
+            width: 100%;
+        }
+    }
 }

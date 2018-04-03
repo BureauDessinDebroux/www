@@ -15,12 +15,11 @@ $DESKTOP_LARGE   : 5.086rem;
 
 html {
     font-size: 62.5%;
-    height: 2999px;
 }
 
-body, button {
+body, button, input::placeholder {
     font-family: $MAIN_FONT;
-    font-display: swap;
+    //font-display: swap;
     font-size: 1.6rem;
     line-height: 150%;
 

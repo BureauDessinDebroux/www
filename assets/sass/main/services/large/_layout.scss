@@ -1,0 +1,136 @@
+// @import 'sidebar/layout';
+@import 'description/layout';
+
+
+
+/*
+* =====================================
+* SECTION TITLE
+* =====================================
+*/
+.services {
+    .section__title {
+        @include media(tablet) {
+            grid-column: span 4;
+            background-color: $TERTIARY_COLOR;
+            opacity: 1;
+            padding-left: calc((100% / 4) * 1);
+            padding-bottom: 5rem;
+        }
+    }
+}
+
+/*
+* ========================================
+* GRID
+* ========================================
+*/
+.services {
+    @include media(tablet) {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column: span 12;
+
+        &__wrapper {
+            display: grid;
+            grid-column: span 12;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        &__sidebar {
+            grid-column: span 4;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        &__list {
+            grid-column: 1 / -1;
+
+            @include media(tablet-large) {
+                grid-column: 2 / -1;
+            }
+        }
+        &__render {
+            grid-column: span 8;
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+        }
+        &__details {
+            grid-column: 2 / -2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+
+            > li {
+                grid-column: span 2;
+
+                @include media(tablet-large) {
+                    grid-column: span 1;
+                }
+            }
+        }
+    }
+}
+
+/*
+* ========================================
+* BASIC LAYOUT
+* ========================================
+*/
+.services {
+    @include media(tablet) {
+        &__sidebar {
+            background-color: $TERTIARY_COLOR;
+        }
+        &__list {
+            margin-bottom: 25rem;
+        }
+        &__item {
+            line-height: 8rem;
+            text-align: right;
+            padding: 0 4rem;
+            cursor: pointer;
+        }
+        &__details {
+            margin-bottom: 15rem;
+        }
+    }
+    &__details {
+        > li {
+            @extend %list__card--item;
+            line-height: 1.3;
+            
+            display: flex;
+            align-items: flex-start;
+            height: 8rem;
+
+            > div {
+                margin: auto 0;
+            }
+        }
+    }
+}
+
+
+/*
+* ========================================
+* ACTIVATION
+* ========================================
+*/
+.services {
+    @include media(tablet) {
+        &__details {
+            &:not(&--is-active) {
+                visibility: hidden;
+                opacity: 0;
+                position: absolute;
+                z-index: -99;
+            }
+        }
+    }
+
+    .tab {
+        &--is-active {
+            background-color: $PRIMARY_COLOR;
+            color: #FFFFFF;
+        }
+    }
+}

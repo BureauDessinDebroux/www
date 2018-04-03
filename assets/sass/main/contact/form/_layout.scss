@@ -1,0 +1,65 @@
+.form {
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column: span 8 !important;
+
+    &__input {
+        grid-column: 2 / -3 !important;
+
+        -webkit-appearance: none;
+        background-color: $TERTIARY_COLOR;
+        border: none;
+        box-sizing: border-box;
+
+        max-width: 100%;
+        width: 100%;
+        max-height: 8rem;
+
+        padding: 3rem;
+        margin-bottom: 1rem;
+
+        position: relative;
+
+        &::placeholder {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            letter-spacing: 0.1rem;
+        }
+
+        &:focus {
+            outline: none;
+            background: darken($TERTIARY_COLOR, 3%);
+        }
+
+        &--submit {
+            grid-column: 1 / 6 !important;
+            @include media(tablet-large) {
+                grid-column: 1 / 4 !important;
+            }
+            background-color: $PRIMARY_COLOR;
+            color: #FFFFFF;
+
+            padding-left: calc((100% / 3) * 1);
+            text-align: left;
+            font-family: $MAIN_FONT;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+
+            margin-bottom: 0;
+
+            &:focus {
+                background-color: darken($PRIMARY_COLOR, 3%);
+            }
+        }
+    }
+
+    &__input {
+        &[name=message] {
+            min-height: 27.5rem;
+            resize: none;
+            margin-bottom: 0;
+        }
+    }
+}

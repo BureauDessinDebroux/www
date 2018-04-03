@@ -1,0 +1,29 @@
+.services {    
+    &__sidebar {
+        padding-top: 25rem;
+        padding-bottom: 25rem;
+
+        background-color: $TERTIARY_COLOR;
+
+        > .section__title {
+            @include smallTitle;
+            color: $SECONDARY_COLOR;
+        }
+
+        &__item {
+            line-height: 8rem;
+            margin-bottom: 1rem;
+            padding: 0 4rem;
+
+            text-align: right;
+            cursor: pointer;
+
+            @extend .title--capsed;
+
+            &:hover, &--is-active {
+                background-color: $PRIMARY_COLOR;
+                color: white;
+            }
+        }
+    }
+}

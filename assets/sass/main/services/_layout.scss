@@ -1,0 +1,64 @@
+@import 'dropdown/layout';
+@import 'large/layout';
+
+// .services {
+//     &__title {
+//         @extend .button;
+//         @extend .button--secondary;
+
+//         @include media(tablet) {
+//             display: none;
+//         }
+//     }
+// }
+
+
+// .services {
+//     @include media(tablet) {
+//         display: grid;
+//         grid-template-columns: repeat(12, 1fr);
+
+//         grid-column: span 12;   
+
+//         > div.mobile--hidden {
+//             display: grid;
+//             grid-template-columns: repeat(12, 1fr);
+
+//             grid-column: span 12;
+//         }
+//     }
+
+
+//     @include media(tablet) {
+//         &__sidebar {
+//             grid-column: span 4;
+//             display: grid;
+//             grid-template-columns: repeat(4, 1fr);
+
+//             &__list {
+//                 grid-column: 1 / -1;
+                
+//                 @include media(tablet-large) {
+//                     grid-column: 2 / -1;
+//                 }
+//             }
+
+//             > .section__title {
+//                 grid-column: 2 / -2;
+//             }
+//         }
+//         &__description {
+//             grid-column: 6 / -2;
+
+//             display: grid;
+//             grid-template-columns: repeat(1, 1fr);
+//             grid-gap: 2rem;
+            
+//             @include media(desktop) {
+//                 grid-template-columns: repeat(2, 1fr);
+//             }
+
+//             grid-auto-rows: 80px;
+//         }
+//     }
+// }
