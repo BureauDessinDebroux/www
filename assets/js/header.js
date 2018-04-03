@@ -19,24 +19,24 @@ const stickyHeader = function() {
         navPositionY        = getPosition(nav).y,
         navWidth            = nav.clientWidth,
         header              = document.querySelector('.header'),
-        previous            = window.scrollY;
+        previous            = window.pageYOffset;
 
     window.addEventListener('scroll', () => {
 
-        if(window.scrollY > previous) {
-            if (scrollY >= navPositionY) {         
+        if(window.pageYOffset > previous) {
+            if (pageYOffset >= navPositionY) {         
                 header.style.paddingBottom = nav.clientHeight + 'px';
                 nav.style.width = navWidth + 'px';
                 nav.classList.add('nav--is-fixed');
             }
         } else {
-            if (scrollY <= navPositionY) {            
+            if (pageYOffset <= navPositionY) {            
                 header.style.paddingBottom = 0 + 'px';
                 nav.classList.remove('nav--is-fixed');
             }
         }
 
-        previous = window.scrollY;
+        previous = window.pageYOffset;
     })
 }
 

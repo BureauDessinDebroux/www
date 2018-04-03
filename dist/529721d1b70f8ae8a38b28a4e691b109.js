@@ -124,24 +124,24 @@ var stickyHeader = function stickyHeader() {
         navPositionY = (0, _helpers.getPosition)(nav).y,
         navWidth = nav.clientWidth,
         header = document.querySelector('.header'),
-        previous = window.scrollY;
+        previous = window.pageYOffset;
 
     window.addEventListener('scroll', function () {
 
-        if (window.scrollY > previous) {
-            if (scrollY >= navPositionY) {
+        if (window.pageYOffset > previous) {
+            if (pageYOffset >= navPositionY) {
                 header.style.paddingBottom = nav.clientHeight + 'px';
                 nav.style.width = navWidth + 'px';
                 nav.classList.add('nav--is-fixed');
             }
         } else {
-            if (scrollY <= navPositionY) {
+            if (pageYOffset <= navPositionY) {
                 header.style.paddingBottom = 0 + 'px';
                 nav.classList.remove('nav--is-fixed');
             }
         }
 
-        previous = window.scrollY;
+        previous = window.pageYOffset;
     });
 };
 
@@ -346,19 +346,20 @@ var projectSlider = function () {
 
         trigger[i].addEventListener('mouseover', function () {
 
-            trigger.forEach(function (element) {
+            for (var _i = 0; _i < trigger.length; _i++) {
+                var element = trigger[_i];
                 element.classList.remove('tab--is-active');
-            });
+            }
 
             trigger[i].classList.add('tab--is-active');
             var data = trigger[i].dataset.service,
                 top = trigger[i].dataset.top;
 
-            for (var _i = 0; _i < target.length; _i++) {
-                target[_i].classList.remove('services__details--is-active');
+            for (var _i2 = 0; _i2 < target.length; _i2++) {
+                target[_i2].classList.remove('services__details--is-active');
 
-                if (target[_i].dataset.service == data) {
-                    target[_i].classList.add('services__details--is-active');
+                if (target[_i2].dataset.service == data) {
+                    target[_i2].classList.add('services__details--is-active');
                 }
             }
 
@@ -382,7 +383,7 @@ require("./js/slider/imagesSet.js");
 require("./js/slider/projects.js");
 
 require("./js/dropdown/dropdown.js");
-},{"./js/header.js":26,"./js/mobilenav.js":28,"./js/slider/imagesSet.js":27,"./js/slider/projects.js":29,"./js/dropdown/dropdown.js":30}],47:[function(require,module,exports) {
+},{"./js/header.js":26,"./js/mobilenav.js":28,"./js/slider/imagesSet.js":27,"./js/slider/projects.js":29,"./js/dropdown/dropdown.js":30}],126:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -505,5 +506,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[47,5])
+},{}]},{},[126,5])
 //# sourceMappingURL=/dist/529721d1b70f8ae8a38b28a4e691b109.map

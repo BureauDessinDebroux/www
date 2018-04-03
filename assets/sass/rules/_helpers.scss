@@ -63,6 +63,12 @@
     }
 }
 
+@mixin Edge() {
+    @supports (-ms-ime-align: auto) {
+        @content;
+    }
+}
+
 @mixin background($background) {
     @if $background == dark {
         background-image: url('../images/logo--background--dark.svg');

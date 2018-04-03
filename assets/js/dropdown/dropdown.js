@@ -41,9 +41,10 @@
         
         trigger[i].addEventListener('mouseover', () => {
 
-            trigger.forEach(element => {
+            for (let i = 0; i < trigger.length; i++) {
+                const element = trigger[i]; 
                 element.classList.remove('tab--is-active');
-            });
+            }
         
             trigger[i].classList.add('tab--is-active');
             let data    = trigger[i].dataset.service,

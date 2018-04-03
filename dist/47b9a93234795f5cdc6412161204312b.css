@@ -643,6 +643,9 @@ header {
 
 .box {
   color: #404652; }
+  @supports (-ms-ime-align: auto) {
+    .box {
+      position: relative; } }
   .box__header {
     background: white;
     padding: 2.65rem 4rem;
@@ -768,6 +771,13 @@ header {
   .images__panel--is-transitionning {
     clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
     transition: clip-path 1s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  @supports (-ms-ime-align: auto) {
+    .images__panel {
+      opacity: 0;
+      transition: opacity .1s linear .1s; }
+      .images__panel--is-active {
+        opacity: 1;
+        transition: opacity .1s linear; } }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .images__panel {
       opacity: 0;

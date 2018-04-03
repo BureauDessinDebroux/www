@@ -138,7 +138,7 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./..\\images\\arrow--right--light.svg":34,"./..\\images\\arrow--down.svg":6,"./..\\images\\phone.svg":33,"./..\\images\\mail.svg":35,"./..\\images\\map.svg":40,"./..\\images\\list__bullet--check.svg":36,"./..\\images\\logo--background.svg":39,"./..\\images\\logo--background--dark.svg":37,"./..\\images\\arrow--left.svg":38,"./..\\images\\arrow--right.svg":41,"./..\\images\\arrow_strict--left.svg":43,"./..\\images\\arrow_strict--right.svg":42,"./..\\images\\dropdown__arrow.svg":44,"./..\\images\\list__bullet--first.svg":45,"_css_loader":32}],118:[function(require,module,exports) {
+},{"./..\\images\\arrow--right--light.svg":34,"./..\\images\\arrow--down.svg":6,"./..\\images\\phone.svg":33,"./..\\images\\mail.svg":35,"./..\\images\\map.svg":40,"./..\\images\\list__bullet--check.svg":36,"./..\\images\\logo--background.svg":39,"./..\\images\\logo--background--dark.svg":37,"./..\\images\\arrow--left.svg":38,"./..\\images\\arrow--right.svg":41,"./..\\images\\arrow_strict--left.svg":43,"./..\\images\\arrow_strict--right.svg":42,"./..\\images\\dropdown__arrow.svg":44,"./..\\images\\list__bullet--first.svg":45,"_css_loader":32}],124:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -261,7 +261,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}],119:[function(require,module,exports) {
+},{}],125:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -341,6 +341,6 @@ LazyPromise.prototype.catch = function (onError) {
   return this.promise || (this.promise = new Promise(this.executor).catch(onError));
 };
 },{"./bundle-url":46}],0:[function(require,module,exports) {
-var b=require(119);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",34],["1795e7322eab3aa186f05dd0e8da2100.svg",6],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",33],["c47328d820df8b84cdd4daa88a0113d6.svg",35],["7615082365b34ae2525a0615156af139.svg",40],["52058a449e716465523e44acc8c0341c.svg",36],["f73425b4a22986cbc0a863c1468a56ec.svg",39],["7cc810cf004096203fa088070b8feaae.svg",37],["00a871908f5fcd797b40452e6e72c60e.svg",38],["a569aeba66a8257ec17a1f44c8c49198.svg",41],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",43],["5cb5ca1b871c5980de37def21fdfe44f.svg",42],["010640fb9a3748c0131a2bef43452444.svg",44],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",45]]);
-},{}]},{},[118,0])
+var b=require(125);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",34],["1795e7322eab3aa186f05dd0e8da2100.svg",6],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",33],["c47328d820df8b84cdd4daa88a0113d6.svg",35],["7615082365b34ae2525a0615156af139.svg",40],["52058a449e716465523e44acc8c0341c.svg",36],["f73425b4a22986cbc0a863c1468a56ec.svg",39],["7cc810cf004096203fa088070b8feaae.svg",37],["00a871908f5fcd797b40452e6e72c60e.svg",38],["a569aeba66a8257ec17a1f44c8c49198.svg",41],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",43],["5cb5ca1b871c5980de37def21fdfe44f.svg",42],["010640fb9a3748c0131a2bef43452444.svg",44],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",45]]);
+},{}]},{},[124,0])
 //# sourceMappingURL=/dist/47b9a93234795f5cdc6412161204312b.map

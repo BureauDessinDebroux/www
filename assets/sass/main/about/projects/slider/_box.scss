@@ -4,6 +4,10 @@ $SLIDER_BOX_COLOR       : $SECONDARY_COLOR;
 .box {
     color: $SLIDER_BOX_COLOR;
 
+    @include Edge() {
+        position: relative;
+    }
+
     &__header {
         background: $SLIDER_BOX_BACKGROUND;
         padding: 2.65rem 4rem;
