@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({97:[function(require,module,exports) {
+})({46:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],83:[function(require,module,exports) {
+},{}],32:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,13 +132,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":97}],37:[function(require,module,exports) {
+},{"./bundle-url":46}],2:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./..\\images\\arrow--right--light.svg":85,"./..\\images\\arrow--down.svg":38,"./..\\images\\phone.svg":84,"./..\\images\\mail.svg":86,"./..\\images\\map.svg":88,"./..\\images\\list__bullet--check.svg":87,"./..\\images\\logo--background.svg":90,"./..\\images\\logo--background--dark.svg":91,"./..\\images\\arrow--left.svg":92,"./..\\images\\arrow--right.svg":89,"./..\\images\\arrow_strict--left.svg":93,"./..\\images\\arrow_strict--right.svg":94,"./..\\images\\dropdown__arrow.svg":95,"./..\\images\\list__bullet--first.svg":96,"_css_loader":83}],259:[function(require,module,exports) {
+},{"./..\\images\\arrow--right--light.svg":34,"./..\\images\\arrow--down.svg":6,"./..\\images\\phone.svg":33,"./..\\images\\mail.svg":35,"./..\\images\\map.svg":40,"./..\\images\\list__bullet--check.svg":36,"./..\\images\\logo--background.svg":39,"./..\\images\\logo--background--dark.svg":37,"./..\\images\\arrow--left.svg":38,"./..\\images\\arrow--right.svg":41,"./..\\images\\arrow_strict--left.svg":43,"./..\\images\\arrow_strict--right.svg":42,"./..\\images\\dropdown__arrow.svg":44,"./..\\images\\list__bullet--first.svg":45,"_css_loader":32}],118:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -160,7 +160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58385' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65129' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -261,7 +261,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}],260:[function(require,module,exports) {
+},{}],119:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -340,7 +340,7 @@ LazyPromise.prototype.then = function (onSuccess, onError) {
 LazyPromise.prototype.catch = function (onError) {
   return this.promise || (this.promise = new Promise(this.executor).catch(onError));
 };
-},{"./bundle-url":97}],0:[function(require,module,exports) {
-var b=require(260);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",85],["1795e7322eab3aa186f05dd0e8da2100.svg",38],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",84],["c47328d820df8b84cdd4daa88a0113d6.svg",86],["7615082365b34ae2525a0615156af139.svg",88],["52058a449e716465523e44acc8c0341c.svg",87],["f73425b4a22986cbc0a863c1468a56ec.svg",90],["7cc810cf004096203fa088070b8feaae.svg",91],["00a871908f5fcd797b40452e6e72c60e.svg",92],["a569aeba66a8257ec17a1f44c8c49198.svg",89],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",93],["5cb5ca1b871c5980de37def21fdfe44f.svg",94],["010640fb9a3748c0131a2bef43452444.svg",95],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",96]]);
-},{}]},{},[259,0])
+},{"./bundle-url":46}],0:[function(require,module,exports) {
+var b=require(119);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",34],["1795e7322eab3aa186f05dd0e8da2100.svg",6],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",33],["c47328d820df8b84cdd4daa88a0113d6.svg",35],["7615082365b34ae2525a0615156af139.svg",40],["52058a449e716465523e44acc8c0341c.svg",36],["f73425b4a22986cbc0a863c1468a56ec.svg",39],["7cc810cf004096203fa088070b8feaae.svg",37],["00a871908f5fcd797b40452e6e72c60e.svg",38],["a569aeba66a8257ec17a1f44c8c49198.svg",41],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",43],["5cb5ca1b871c5980de37def21fdfe44f.svg",42],["010640fb9a3748c0131a2bef43452444.svg",44],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",45]]);
+},{}]},{},[118,0])
 //# sourceMappingURL=/dist/47b9a93234795f5cdc6412161204312b.map

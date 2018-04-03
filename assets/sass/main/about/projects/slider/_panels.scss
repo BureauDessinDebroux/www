@@ -78,6 +78,17 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
                         );
             transition: clip-path 1s $EASING;
         }
+
+
+        @include IE() {
+            opacity: 0;
+            transition: opacity .1s linear .1s;
+
+            &--is-active {
+                opacity: 1;
+                transition: opacity .1s linear;
+            }
+        }
     }
 
     &__wrapper {
