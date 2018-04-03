@@ -1,29 +1,32 @@
-.services {    
-    &__sidebar {
-        padding-top: 25rem;
-        padding-bottom: 25rem;
+.services {
 
-        background-color: $TERTIARY_COLOR;
+    &__item {
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
 
-        > .section__title {
-            @include smallTitle;
-            color: $SECONDARY_COLOR;
-        }
+    &__list {
+        position: relative;
+    }
 
-        &__item {
-            line-height: 8rem;
-            margin-bottom: 1rem;
-            padding: 0 4rem;
+    &__tab {
+        display: block;
+        width: 100%; height: 8rem;
 
-            text-align: right;
-            cursor: pointer;
+        background: $PRIMARY_COLOR;
+        position: absolute;
+        left: 0; top: 0;
+        z-index: 0;
 
-            @extend .title--capsed;
+        transition: transform .2s ease-out;
+    }
+}
 
-            &:hover, &--is-active {
-                background-color: $PRIMARY_COLOR;
-                color: white;
-            }
-        }
+
+.tab {
+    &--is-active {
+        color: white;
+        transition: color 0s linear .1s;
     }
 }

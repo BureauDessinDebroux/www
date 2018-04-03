@@ -4,14 +4,18 @@
 
 .mobile {
     &--hidden {
-        display: none;
+        @include media(mobile) {
+            display: none !important;
+        }
 
         @include media(tablet) {
             display: block;
         }
     }
     &--visible {
-        display: none;
+        @include media(tablet) {
+            display: none !important;
+        }
         
         @include media(mobile) {
             display: block;

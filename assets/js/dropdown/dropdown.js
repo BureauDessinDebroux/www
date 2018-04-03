@@ -34,15 +34,20 @@
 
 (function sidebarDropdown() {
     let trigger = document.querySelectorAll('.tab'),
-        target  = document.querySelectorAll('.services__details');
+        target  = document.querySelectorAll('.services__details'),
+        tab     = document.querySelector('.services__tab');
 
     for (let i = 0; i < trigger.length; i++) {
-        trigger[i].addEventListener('click', () => {
+        
+        trigger[i].addEventListener('mouseover', () => {
+
             trigger.forEach(element => {
                 element.classList.remove('tab--is-active');
             });
+        
             trigger[i].classList.add('tab--is-active');
-            let data = trigger[i].dataset.service;
+            let data    = trigger[i].dataset.service,
+                top     = trigger[i].dataset.top;
 
             for (let i = 0; i < target.length; i++) {
                 target[i].classList.remove('services__details--is-active');
@@ -51,6 +56,8 @@
                     target[i].classList.add('services__details--is-active');
                 }
             }
+
+            tab.style.transform = 'translateY(' + top + 'rem)';
         })
     }
 })();

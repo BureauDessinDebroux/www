@@ -72,3 +72,40 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
         }
     }
 }
+
+
+/*
+* ========================================
+* IE
+* ========================================
+*/
+.contact {
+    > .grid > .section__title {
+        @include IE() {
+            max-width: calc((100% / 12) * 4) !important;
+            padding-left: calc((100% / 12) * 1) !important;
+        }
+    }
+
+    &__wrapper {
+        @include IE() {
+            display: flex;
+        }
+    }
+
+    &__sidebar {
+        @include IE() {
+            max-width: calc((100% / 12) * 4);
+            width: 100%;
+            padding-left: calc((100% / 12) * 1);
+        }
+    }
+    
+    &__render {
+        @include IE() {
+            max-width: calc((100% / 12) * 8);
+            width: 100%;
+            padding-left: calc((100% / 12) * 1);
+        }
+    }
+}

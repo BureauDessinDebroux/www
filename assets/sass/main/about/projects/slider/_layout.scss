@@ -7,6 +7,10 @@
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(auto, 1fr);
+
+        @include IE() {
+            display: flex;
+        }
     }
 
     position: relative;
@@ -37,6 +41,7 @@
 
         display: grid;
         grid-template-columns: repeat(8, 1fr);
+
 
         > .images__load {
             grid-column: 2 / -1;

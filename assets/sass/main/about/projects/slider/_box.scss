@@ -7,11 +7,21 @@ $SLIDER_BOX_COLOR       : $SECONDARY_COLOR;
     &__header {
         background: $SLIDER_BOX_BACKGROUND;
         padding: 2.65rem 4rem;
+        display: flex;
     }
 
     &__content {
         background: $SLIDER_BOX_BACKGROUND;
         border-top: 1px solid rgba($SLIDER_BOX_COLOR, 0.1);
         padding: 4rem;
+    }
+}
+
+.projects {
+    &__counter {
+        margin-left: auto;
+        font-weight: 500;
+        font-size: 1.4rem;
+        opacity: 0.8;
     }
 }

@@ -17,15 +17,19 @@ html {
     font-size: 62.5%;
 }
 
-body, button, input::placeholder {
+body, button {
     font-family: $MAIN_FONT;
-    //font-display: swap;
+    font-display: swap;
     font-size: 1.6rem;
     line-height: 150%;
 
     @include media(tablet-large) {
         font-size: 1.8rem;
     }
+}
+
+input::placeholder {
+    font-family: $MAIN_FONT;
 }
 
 .bold {

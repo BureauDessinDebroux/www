@@ -23,6 +23,10 @@ body {
         grid-template-columns: repeat(12, 1fr);           
     }
 
+    @include IE() {
+        overflow-x: hidden;
+    }
+
     .header {
         @include media(tablet-large) {
             grid-column: -1 / 1;
