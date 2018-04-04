@@ -1,22 +1,34 @@
 <?php 
 
-echo '2';
-
 if(isset($_POST['name'])) {
 
-    $NAME       = $_POST['name'];
-    $EMAIL      = $_POST['mail'];
-    $MESSAGE    = $_POST['message'];
+    // define variables and set to empty values
+    $NAME = $EMAIL = $MESSAGE = "";
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $NAME       = test_input($_POST["name"]);
+        $EMAIL      = test_input($_POST["email"]);
+        $MESSAGE    = test_input($_POST["message"]);
+    }
 
     // CONFIGURATION
     $RECIEVER   = "wollsale@gmail.com";
     $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
-    $SUBJECT    = "Nouveau message reçu de $NAME";
+    $SUBJECT    = "[bureaudessindebroux.be] Nouveau message reçu de $NAME ($EMAIL)";
 
-    mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM, "-f contact@bureaudessindebroux.be");
+    mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
 
-    echo 'sent';
+    var_dump($NAME);
+    var_dump($EMAIL);
+    var_dump($MESSAGE);
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
 
 ?>
