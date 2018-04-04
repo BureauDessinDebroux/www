@@ -25,19 +25,18 @@ if(isset($_POST['name'])) {
         } else {
             $MESSAGE = test_input($_POST["message"]);
         }
+
+        // CONFIGURATION
+        $RECIEVER   = "wollsale@gmail.com";
+        $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
+        $SUBJECT    = "[bureaudessindebroux.be] Nouveau message reçu de $NAME ($EMAIL)";
+
+        // MAIL SERVICE
+        mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
+
+        header('Location: index.html');
         
     }
-
-    // CONFIGURATION
-    $RECIEVER   = "wollsale@gmail.com";
-    $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
-    $SUBJECT    = "[bureaudessindebroux.be] Nouveau message reçu de $NAME ($EMAIL)";
-
-    // MAIL SERVICE
-    mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
-
-    header('Location: index.html');
-
 }
 
 function test_input($data) {
