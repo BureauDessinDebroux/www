@@ -316,7 +316,7 @@
 
                         <form class="form" name="contact_form" action="contact.php" method="post">
                             <input type="text" class="form__input" name="name" placeholder="Votre nom">
-                            <input type="mail" class="form__input" name="email" placeholder="Votre adresse email" required>
+                            <input type="mail" class="form__input" name="email" placeholder="Votre adresse email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
                             <textarea type="textarea" class="form__input" name="message" placeholder="Votre messages"></textarea>
                             <input type="submit" value="Envoyer votre message" class="form__input form__input--submit">
                         </form>
