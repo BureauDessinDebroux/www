@@ -1,14 +1,14 @@
 <?php 
 
-    if(isset($_POST['message'])) {
+    if(isset($_POST['name'])) {
 
         $name       = $_POST['name']; 
         $mail       = $_POST['mail']; 
         $message    = $_POST['message'];
 
-        echo 'Name = ' . $name;
-        echo 'Mail = ' . $mail;
-        echo 'Message = ' . $message;
+        echo $name;
+        echo $mail;
+        echo $message;
 
     }
 
