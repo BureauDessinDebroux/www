@@ -14,7 +14,7 @@ if(isset($_POST['name'])) {
     $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
     $SUBJECT    = "Nouveau message reçu de $NAME";
 
-    mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
+    mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM, "-f contact@bureaudessindebroux.be");
 
     echo 'sent';
 }
