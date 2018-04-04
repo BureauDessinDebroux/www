@@ -29,7 +29,7 @@ if(isset($_POST['name'])) {
         // CONFIGURATION
         $RECIEVER   = "wollsale@gmail.com";
         $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
-        $SUBJECT    = "[bureaudessindebroux.be] Nouveau message reçu de $NAME ($EMAIL)";
+        $SUBJECT    = "[bureaudessindebroux.be] Message reçu de $NAME ($EMAIL)";
 
         // MAIL SERVICE
         mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
