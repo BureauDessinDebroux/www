@@ -38,8 +38,10 @@
             @include media(tablet-large) {
                 grid-column: 1 / 4 !important;
             }
+
             background-color: $PRIMARY_COLOR;
             color: #FFFFFF;
+            cursor: pointer;
 
             padding-left: calc((100% / 3) * 1);
             text-align: left;
@@ -56,10 +58,17 @@
     }
 
     &__input {
+        font-family: $MAIN_FONT;
+
         &[name=message] {
             min-height: 27.5rem;
             resize: none;
             margin-bottom: 0;
+            font-family: $MAIN_FONT;
+        }
+
+        &:not([type=submit]) {
+            color: $SECONDARY_COLOR;
         }
     }
 }

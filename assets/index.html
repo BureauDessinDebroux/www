@@ -315,10 +315,10 @@
                         <p class="contact__tagline">Contactez-nous pour discuter de notre prochain projet !</p>
 
                         <form class="form" name="contact_form" action="contact.php" method="post">
-                            <input type="text" class="form__input" name="name" placeholder="Votre nom">
+                            <input type="text" class="form__input" name="name" placeholder="Votre nom" required>
                             <input type="checkbox" name="company" value="1" style="display:none !important" tabindex="-1" autocomplete="off">
                             <input type="mail" class="form__input" name="email" placeholder="Votre adresse email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
-                            <textarea type="textarea" class="form__input" name="message" placeholder="Votre messages"></textarea>
+                            <textarea type="textarea" class="form__input" name="message" placeholder="Votre messages" required></textarea>
                             <input type="submit" value="Envoyer votre message" class="form__input form__input--submit">
                         </form>
                     </div>
@@ -330,7 +330,22 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        
+        <div class="footer__column footer__brand">
+            <img src="./images/logo--white.svg" alt="Logo Bureau Dessin Debroux">
+            <span class="brand__name">Bureau <strong class="bold">Dessin Debroux</strong></span>
+        </div>
+        <div class="footer__column footer__adress">
+            <ul class="footer__list">
+                <li class="footer__item"><a href="https://goo.gl/maps/6Gfx9qg3pVt" class="footer__link">Petit Pierpont, 1 —  6210 Frasnes-lez-Gosselies</a></li>
+                <li class="footer__item">TVA : BE0563 330 666</li>
+            </ul>
+        </div>
+        <div class="footer__column footer__contact">
+            <ul class="footer__list">
+                <li class="footer__item"><a href="tel:+32497576353" class="footer__link">+32 497 57 63 53</a></li>
+                <li class="footer__item"><a href="mailto:bureaudessindebroux@gmail.com" class="footer__link">bureaudessindebroux@gmail.com</a></li>
+            </ul>
+        </div>
     </footer>
     <!-- END FOOTER -->
 

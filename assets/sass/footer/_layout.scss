@@ -1,5 +1,61 @@
 .footer {
     grid-column: span 12;
-    height: 400px;
     background: $SECONDARY_COLOR;
+    color: rgba(white, 0.5);
+    font-size: 1.6rem;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: end;
+    
+    padding: 15rem 3rem 2rem;
+
+    &__column {
+        grid-column: span 4;
+    }
+
+    &__item {
+        display: inline-block;
+        
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+    }
+
+
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        
+        > img {
+            width: 5.5rem;
+            height: 4.5rem;
+            margin-top: auto;
+            margin-bottom: 3rem;
+            opacity: 0.3;
+        }
+
+        .brand__name {
+            margin-bottom: 0;
+        }
+    }
+
+    &__adress {
+        text-align: center;
+    }
+
+    &__contact {
+        text-align: right;
+    }
+
+    &__link {
+        color: rgba(white, .5);
+        text-decoration: none;
+
+        border-bottom: 1px solid rgba(white, 0.2);
+
+        &:hover {
+            color: rbga(white, 1) !important;
+        }
+    }
 }
