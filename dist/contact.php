@@ -3,12 +3,29 @@
 if(isset($_POST['name'])) {
 
     // define variables and set to empty values
+    $ERR_NAME = $ERR_EMAIL = $ERR_MESSAGE = "";
     $NAME = $EMAIL = $MESSAGE = "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $NAME       = test_input($_POST["name"]);
-        $EMAIL      = test_input($_POST["email"]);
-        $MESSAGE    = test_input($_POST["message"]);
+
+        if(empty($_POST["name"])) {
+            $ERR_NAME = "Manque le nom";
+        } else {
+            $NAME = test_input($_POST["name"]);
+        }
+        
+        if(empty($_POST["name"])) {
+            $ERR_MAIL = "Manque le mail";
+        } else {
+            $EMAIL = test_input($_POST["email"]);
+        }
+        
+        if(empty($_POST["name"])) {
+            $ERR_MESSAGE = "Manque le message";
+        } else {
+            $MESSAGE = test_input($_POST["message"]);
+        }
+        
     }
 
     // CONFIGURATION
@@ -16,11 +33,10 @@ if(isset($_POST['name'])) {
     $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
     $SUBJECT    = "[bureaudessindebroux.be] Nouveau message reçu de $NAME ($EMAIL)";
 
+    // MAIL SERVICE
     mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
 
-    var_dump($NAME);
-    var_dump($EMAIL);
-    var_dump($MESSAGE);
+    header('Location: index.html');
 
 }
 
