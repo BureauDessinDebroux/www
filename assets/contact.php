@@ -1,7 +1,13 @@
 <?php 
 
-echo '1';
+echo '2';
 
-var_dump($_POST['name']);
+if(isset($_POST['name'])) {
+
+    $NAME       = $_POST['name'];
+
+    var_dump($NAME);
+
+}
 
 ?>
