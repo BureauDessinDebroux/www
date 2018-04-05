@@ -12,6 +12,15 @@ $ABOUT_BACKGROUND : $SECONDARY_COLOR;
         @include smallTitle;
 
         margin-bottom: 5rem;
+
+        @include media(tablet) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @include media(tablet-large) {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
     }
     &__resume {
         font-size: $MOBILE-MEDIUM;
@@ -24,9 +33,27 @@ $ABOUT_BACKGROUND : $SECONDARY_COLOR;
             line-height: 130%;
             margin-bottom: 10rem;
         }
+
+        @include media(tablet) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @include media(tablet-large) {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
     }
     &__content {
         margin-bottom: 10rem;
+
+        @include media(tablet) {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        @include media(tablet-large) {
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
 
         > p {
             margin-bottom: 2.5rem;

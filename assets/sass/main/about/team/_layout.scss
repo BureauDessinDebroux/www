@@ -8,6 +8,13 @@
         @include media(tablet-large) {
             grid-column: 3 / -1;
         }
+
+        @include media(tablet) {
+            padding-left: 2rem;
+        }
+        @include media(tablet-large) {
+            padding-left: 0rem;
+        }
     }
 
     &__title {
