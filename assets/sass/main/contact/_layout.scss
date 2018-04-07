@@ -26,6 +26,7 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
     &__title {
         grid-column: 2 / 4;
         padding: 0;
+        opacity: 1;
     }
 
     &__tagline {
@@ -59,10 +60,13 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
     &__sidebar {
         @extend .services__sidebar;
 
+        padding-top: 10rem;
         grid-template-rows: repeat(2, auto);
     }
     &__render {
         @extend .services__render;
+
+        padding-top: 10rem;
         
         > * {
             grid-column: 2 / 6;

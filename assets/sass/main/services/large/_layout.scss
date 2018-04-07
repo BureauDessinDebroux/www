@@ -31,6 +31,10 @@
         grid-template-columns: repeat(12, 1fr);
         grid-column: span 12;
 
+        &__title {
+            padding-top: 10rem;            
+        }
+
         &__wrapper {
             display: grid;
             grid-column: span 12;
@@ -87,7 +91,7 @@
             background-color: $TERTIARY_COLOR;
         }
         &__list {
-            margin-bottom: 25rem;
+            margin-bottom: 15rem;
         }
         &__item {
             line-height: 8rem;
@@ -96,7 +100,7 @@
             cursor: pointer;
         }
         &__details {
-            margin-bottom: 15rem;
+            margin-bottom: 5rem;
         }
     }
     &__details {
