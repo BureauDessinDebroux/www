@@ -41,7 +41,7 @@ if(isset($_POST['name'])) {
             mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
             
             // REDIRECTION
-            header('Location: index.html#contact');
+            // header('Location: index.html#contact');
             
         }
         
