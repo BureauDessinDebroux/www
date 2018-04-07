@@ -41,7 +41,7 @@ if(isset($_POST['name'])) {
             mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
             
             // REDIRECTION
-            // header('Location: index.html#contact');
+            header('Location: index.html#contact?message="message sent"');
             
         }
         
@@ -56,5 +56,3 @@ function test_input($data) {
 }
 
 ?>
-
-<img src="./images/logo.svg" alt="Logo Bureau Dessin Debroux">
