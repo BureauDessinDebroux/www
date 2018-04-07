@@ -7,6 +7,8 @@ const messageFeedback = function() {
     let MESSAGE = getURLParameter('message'),
         OUTTER  = document.querySelector('.form__input--submit'),
         FEEDBACK = 'message envoyé';
+
+        console.log(MESSAGE);
             
     if(MESSAGE == 'message sent') {
         OUTTER.classList.add('form__input--submitted');
