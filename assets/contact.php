@@ -56,3 +56,5 @@ function test_input($data) {
 }
 
 ?>
+
+<img src="./images/logo.svg" alt="Logo Bureau Dessin Debroux">
