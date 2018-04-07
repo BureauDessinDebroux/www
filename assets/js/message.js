@@ -6,13 +6,15 @@ const messageFeedback = function() {
 
     let MESSAGE = getURLParameter('message'),
         OUTTER  = document.querySelector('.form__input--submit'),
-        FEEDBACK = 'message envoyé';
+        OUTTER_VALUE = 'message envoyé',
+        FEEDBACK = document.querySelector('.contact__feedback');
 
         console.log(MESSAGE);
             
     if(MESSAGE == 'message sent') {
         OUTTER.classList.add('form__input--submitted');
-        OUTTER.value = FEEDBACK;
+        OUTTER.value = OUTTER_VALUE;
+        FEEDBACK.classList.add('contact__feedback--is-visible');
     }
 
 }
