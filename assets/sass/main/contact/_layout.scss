@@ -23,6 +23,11 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
         padding-top: 15rem;
     }
 
+    &__title {
+        grid-column: 2 / 4;
+        padding: 0;
+    }
+
     &__tagline {
         font-size: $MOBILE-MEDIUM;
         line-height: 150%;
@@ -53,6 +58,8 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
     }
     &__sidebar {
         @extend .services__sidebar;
+
+        grid-template-rows: repeat(2, auto);
     }
     &__render {
         @extend .services__render;

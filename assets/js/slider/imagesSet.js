@@ -15,8 +15,6 @@ export function imagesSlider() {
         }
     }
 
-    console.log(active_project_images);
-
     let slides          = active_project_images.querySelectorAll('img'),
         slides__wrapper = document.querySelector('.images__load'),
         current_slide   = 0,
