@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({83:[function(require,module,exports) {
+})({86:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],68:[function(require,module,exports) {
+},{}],71:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,13 +132,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":83}],39:[function(require,module,exports) {
+},{"./bundle-url":86}],38:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./..\\images\\arrow--right--light.svg":69,"./..\\images\\arrow--down.svg":41,"./..\\images\\phone.svg":72,"./..\\images\\mail.svg":70,"./..\\images\\map.svg":71,"./..\\images\\list__bullet--check.svg":74,"./..\\images\\logo--background.svg":76,"./..\\images\\logo--background--dark.svg":75,"./..\\images\\arrow--left.svg":73,"./..\\images\\arrow--right.svg":77,"./..\\images\\arrow_strict--left.svg":78,"./..\\images\\arrow_strict--right.svg":79,"./..\\images\\dropdown__arrow.svg":82,"./..\\images\\list__bullet--first.svg":80,"./..\\images\\check--white.svg":81,"_css_loader":68}],174:[function(require,module,exports) {
+},{"./..\\images\\arrow--right--light.svg":72,"./..\\images\\arrow--down.svg":43,"./..\\images\\phone.svg":73,"./..\\images\\mail.svg":74,"./..\\images\\map.svg":75,"./..\\images\\list__bullet--check.svg":76,"./..\\images\\logo--background.svg":78,"./..\\images\\logo--background--dark.svg":77,"./..\\images\\arrow--left.svg":80,"./..\\images\\arrow--right.svg":79,"./..\\images\\arrow_strict--left.svg":81,"./..\\images\\arrow_strict--right.svg":82,"./..\\images\\dropdown__arrow.svg":85,"./..\\images\\list__bullet--first.svg":83,"./..\\images\\check--white.svg":84,"_css_loader":71}],151:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -160,7 +160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64141' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53133' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -261,7 +261,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}],175:[function(require,module,exports) {
+},{}],152:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -340,7 +340,7 @@ LazyPromise.prototype.then = function (onSuccess, onError) {
 LazyPromise.prototype.catch = function (onError) {
   return this.promise || (this.promise = new Promise(this.executor).catch(onError));
 };
-},{"./bundle-url":83}],0:[function(require,module,exports) {
-var b=require(175);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",69],["1795e7322eab3aa186f05dd0e8da2100.svg",41],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",72],["c47328d820df8b84cdd4daa88a0113d6.svg",70],["7615082365b34ae2525a0615156af139.svg",71],["52058a449e716465523e44acc8c0341c.svg",74],["f73425b4a22986cbc0a863c1468a56ec.svg",76],["7cc810cf004096203fa088070b8feaae.svg",75],["00a871908f5fcd797b40452e6e72c60e.svg",73],["a569aeba66a8257ec17a1f44c8c49198.svg",77],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",78],["5cb5ca1b871c5980de37def21fdfe44f.svg",79],["010640fb9a3748c0131a2bef43452444.svg",82],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",80],["ecc09c561e7a4c9d4b6f15e34596da46.svg",81]]);
-},{}]},{},[174,0])
+},{"./bundle-url":86}],0:[function(require,module,exports) {
+var b=require(152);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",72],["1795e7322eab3aa186f05dd0e8da2100.svg",43],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",73],["c47328d820df8b84cdd4daa88a0113d6.svg",74],["7615082365b34ae2525a0615156af139.svg",75],["52058a449e716465523e44acc8c0341c.svg",76],["f73425b4a22986cbc0a863c1468a56ec.svg",78],["7cc810cf004096203fa088070b8feaae.svg",77],["00a871908f5fcd797b40452e6e72c60e.svg",80],["a569aeba66a8257ec17a1f44c8c49198.svg",79],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",81],["5cb5ca1b871c5980de37def21fdfe44f.svg",82],["010640fb9a3748c0131a2bef43452444.svg",85],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",83],["ecc09c561e7a4c9d4b6f15e34596da46.svg",84]]);
+},{}]},{},[151,0])
 //# sourceMappingURL=/dist/47b9a93234795f5cdc6412161204312b.map

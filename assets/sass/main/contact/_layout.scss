@@ -21,6 +21,7 @@ $CONTACT_BACKGROUND : $TERTIARY_COLOR;
 .contact {
     @include media(mobile) {
         padding-top: 15rem;
+        background-color: $TERTIARY_COLOR;
     }
 
     &__title {
