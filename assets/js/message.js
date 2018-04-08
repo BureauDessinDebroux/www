@@ -8,8 +8,6 @@ const messageFeedback = function() {
         OUTTER  = document.querySelector('.form__input--submit'),
         OUTTER_VALUE = 'message envoyé',
         FEEDBACK = document.querySelector('.contact__feedback');
-
-        console.log(MESSAGE);
             
     if(MESSAGE == 'message sent') {
         OUTTER.classList.add('form__input--submitted');
