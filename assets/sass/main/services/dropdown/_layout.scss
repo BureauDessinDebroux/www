@@ -50,10 +50,10 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
             background-image: url('../images/list__bullet--first.svg');
         }
         &:nth-of-type(2) {
-            background-image: url('../images/list__bullet--first.svg');
+            background-image: url('../images/list__bullet--second.svg');
         }
         &:last-of-type {
-            background-image: url('../images/list__bullet--first.svg');
+            background-image: url('../images/list__bullet--third.svg');
         }
     }
 }
