@@ -17,6 +17,23 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
 * =========================================
 */
 .service {
+    &__item {
+        &:first-of-type {
+            .service__category {
+                background-image: url('../images/list__bullet--first.svg');
+            }
+        }
+        &:nth-of-type(2) {
+            .service__category {
+                background-image: url('../images/list__bullet--second.svg');
+            }
+        }
+        &:last-of-type {
+            .service__category {
+                background-image: url('../images/list__bullet--second.svg');
+            }
+        }
+    }
     &__category {
         @include smallTitle;
         
@@ -44,16 +61,6 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
                 transform: rotate(180deg);
                 transition: transform .2s ease-out;
             }
-        }
-
-        &:first-of-type {
-            background-image: url('../images/list__bullet--first.svg');
-        }
-        &:nth-of-type(2) {
-            background-image: url('../images/list__bullet--second.svg');
-        }
-        &:last-of-type {
-            background-image: url('../images/list__bullet--third.svg');
         }
     }
 }
