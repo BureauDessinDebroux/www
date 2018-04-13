@@ -52,7 +52,7 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
     &__item {
         &:first-of-type {
             .service__category {
-                background-image: url('../images/list__bullet--first.svg');
+                background-image: url('../images/list__bullet--third.svg');
             }
         }
         &:nth-of-type(2) {
@@ -62,7 +62,7 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
         }
         &:last-of-type {
             .service__category {
-                background-image: url('../images/list__bullet--second.svg');
+                background-image: url('../images/list__bullet--first.svg');
             }
         }
     }
