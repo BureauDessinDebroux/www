@@ -33,7 +33,7 @@ if(isset($_POST['name'])) {
             }
     
             // CONFIGURATION
-            $RECIEVER   = "bdd-test@yopmail.com";
+            $RECIEVER   = "bureaudessindebroux@gmail.com";
             $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
             $SUBJECT    = "[bureaudessindebroux.be] Message reçu de $NAME ($EMAIL)";
     
