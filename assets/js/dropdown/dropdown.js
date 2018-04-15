@@ -1,26 +1,31 @@
 (function dropdown() {
-    let triggers = document.querySelectorAll('.dropdown');
+    let triggers = document.querySelectorAll('.dropdown > h4'),
+        parents  = [];
 
     for (let i = 0; i < triggers.length; i++) {
-        let content         = triggers[i].querySelector('.dropdown__content'),
+        let content         = triggers[i].parentNode.childNodes[3],
             content_height  = content.clientHeight,
+            parent          = triggers[i].parentNode,
             open;
+
+        parents.push(parent);
+        
 
         content.style.height = 0;
 
         triggers[i].addEventListener('click', () => {
-            if (triggers[i].classList.contains('dropdown--is-open')) {
+            if (parent.classList.contains('dropdown--is-open')) {
                 open = true;
             } else {
                 open = false;
             }
 
-            triggers.forEach(element => {
+            parents.forEach(element => {
                 element.classList.remove('dropdown--is-open');
                 element.querySelector('.dropdown__content').style.height = 0;
             });
 
-            open == true ? triggers[i].classList.remove('dropdown--is-open') : triggers[i].classList.add('dropdown--is-open');
+            open == true ? parent.classList.remove('dropdown--is-open') : parent.classList.add('dropdown--is-open');
 
             if (content.clientHeight > 0) {
                 content.style.height = 0 + 'px';
@@ -30,6 +35,7 @@
         });
     }
 })();
+
 
 
 (function sidebarDropdown() {

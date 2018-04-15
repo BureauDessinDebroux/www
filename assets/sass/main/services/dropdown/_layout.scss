@@ -6,7 +6,7 @@ $EASING : cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &__content {
         overflow: hidden;
-        transition: height .6s $EASING;
+        transition: height 1s $EASING;
     }
 }
 
