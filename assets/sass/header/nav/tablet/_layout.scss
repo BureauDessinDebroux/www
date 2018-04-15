@@ -136,6 +136,13 @@ $TABLET_NAV_BACKGROUND : $PRIMARY_COLOR;
                     transition: .2s ease-out;
                 }
             }
+
+            &--is-active {
+                &::after {
+                    transform: translateY(0px) translateX(-50%);
+                    transition: .2s ease-out;
+                }
+            }
         }
     }
 }

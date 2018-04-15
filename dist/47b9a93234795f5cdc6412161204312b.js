@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({109:[function(require,module,exports) {
+})({214:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -101,7 +101,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],92:[function(require,module,exports) {
+},{}],213:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -132,13 +132,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":109}],46:[function(require,module,exports) {
+},{"./bundle-url":214}],153:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./..\\images\\arrow--right--light.svg":93,"./..\\images\\arrow--down.svg":57,"./..\\images\\phone.svg":94,"./..\\images\\mail.svg":96,"./..\\images\\map.svg":99,"./..\\images\\list__bullet--check.svg":97,"./..\\images\\logo--background.svg":95,"./..\\images\\logo--background--dark.svg":98,"./..\\images\\arrow--left.svg":100,"./..\\images\\arrow--right.svg":102,"./..\\images\\arrow_strict--left.svg":101,"./..\\images\\arrow_strict--right.svg":103,"./..\\images\\dropdown__arrow.svg":104,"./..\\images\\list__bullet--third.svg":105,"./..\\images\\list__bullet--second.svg":106,"./..\\images\\list__bullet--first.svg":108,"./..\\images\\check--white.svg":107,"_css_loader":92}],110:[function(require,module,exports) {
+},{"./..\\images\\arrow--right--light.svg":197,"./..\\images\\arrow--down.svg":162,"./..\\images\\phone.svg":198,"./..\\images\\mail.svg":199,"./..\\images\\map.svg":200,"./..\\images\\list__bullet--check.svg":201,"./..\\images\\logo--background.svg":202,"./..\\images\\logo--background--dark.svg":203,"./..\\images\\arrow--left.svg":204,"./..\\images\\arrow--right.svg":205,"./..\\images\\arrow_strict--left.svg":206,"./..\\images\\arrow_strict--right.svg":207,"./..\\images\\dropdown__arrow.svg":208,"./..\\images\\list__bullet--third.svg":209,"./..\\images\\list__bullet--second.svg":210,"./..\\images\\list__bullet--first.svg":211,"./..\\images\\check--white.svg":212,"_css_loader":213}],287:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -160,7 +160,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60916' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61510' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -261,7 +261,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}],112:[function(require,module,exports) {
+},{}],288:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -340,7 +340,7 @@ LazyPromise.prototype.then = function (onSuccess, onError) {
 LazyPromise.prototype.catch = function (onError) {
   return this.promise || (this.promise = new Promise(this.executor).catch(onError));
 };
-},{"./bundle-url":109}],0:[function(require,module,exports) {
-var b=require(112);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",93],["1795e7322eab3aa186f05dd0e8da2100.svg",57],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",94],["c47328d820df8b84cdd4daa88a0113d6.svg",96],["7615082365b34ae2525a0615156af139.svg",99],["52058a449e716465523e44acc8c0341c.svg",97],["f73425b4a22986cbc0a863c1468a56ec.svg",95],["7cc810cf004096203fa088070b8feaae.svg",98],["00a871908f5fcd797b40452e6e72c60e.svg",100],["a569aeba66a8257ec17a1f44c8c49198.svg",102],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",101],["5cb5ca1b871c5980de37def21fdfe44f.svg",103],["010640fb9a3748c0131a2bef43452444.svg",104],["505a7b84079854e0fad1724f9de9aa9e.svg",105],["43ea601bd878624a674eed4c143434e3.svg",106],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",108],["ecc09c561e7a4c9d4b6f15e34596da46.svg",107]]);
-},{}]},{},[110,0])
+},{"./bundle-url":214}],0:[function(require,module,exports) {
+var b=require(288);b.load([["d17441f2989d8d2b773e278495ebd27f.svg",197],["1795e7322eab3aa186f05dd0e8da2100.svg",162],["9432f496e8cf97fb3ba0d41a09d1fcc0.svg",198],["c47328d820df8b84cdd4daa88a0113d6.svg",199],["7615082365b34ae2525a0615156af139.svg",200],["52058a449e716465523e44acc8c0341c.svg",201],["f73425b4a22986cbc0a863c1468a56ec.svg",202],["7cc810cf004096203fa088070b8feaae.svg",203],["00a871908f5fcd797b40452e6e72c60e.svg",204],["a569aeba66a8257ec17a1f44c8c49198.svg",205],["1b1e5c3667e56eeae48f4fdd2946ffa7.svg",206],["5cb5ca1b871c5980de37def21fdfe44f.svg",207],["010640fb9a3748c0131a2bef43452444.svg",208],["505a7b84079854e0fad1724f9de9aa9e.svg",209],["43ea601bd878624a674eed4c143434e3.svg",210],["a3da8dd4bc3bcb9b572dd4794552b1d4.svg",211],["ecc09c561e7a4c9d4b6f15e34596da46.svg",212]]);
+},{}]},{},[287,0])
 //# sourceMappingURL=/dist/47b9a93234795f5cdc6412161204312b.map
