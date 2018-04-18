@@ -23,7 +23,7 @@ const stickyHeader = function() {
 
     window.addEventListener('scroll', () => {
 
-        if(window.pageYOffset > previous) {
+        if(window.pageYOffset >= previous) {
             if (pageYOffset >= navPositionY) {         
                 header.style.paddingBottom = nav.clientHeight + 'px';
                 nav.style.width = navWidth + 'px';
