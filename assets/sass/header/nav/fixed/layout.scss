@@ -1,6 +1,8 @@
 $BRAND_EASING : cubic-bezier(.11, .42, .28, 1);
 
 .nav {
+    position: relative;
+    
     &__brand {
         overflow: hidden;
 
