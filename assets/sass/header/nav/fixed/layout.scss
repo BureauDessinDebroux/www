@@ -1,8 +1,6 @@
 $BRAND_EASING : cubic-bezier(.11, .42, .28, 1);
 
-.nav {
-    position: relative;
-    
+.nav {    
     &__brand {
         overflow: hidden;
 
@@ -17,7 +15,7 @@ $BRAND_EASING : cubic-bezier(.11, .42, .28, 1);
 
     &--is-fixed {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
         z-index: 4;
 
         .nav {
