@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({44:[function(require,module,exports) {
+})({43:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -106,7 +106,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],34:[function(require,module,exports) {
+},{}],33:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -152,7 +152,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":44}],45:[function(require,module,exports) {
+},{"./helpers.js":43}],44:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function scrollIt(destination) {
 
     scroll();
 }
-},{}],39:[function(require,module,exports) {
+},{}],38:[function(require,module,exports) {
 "use strict";
 
 var _smoothScroll = require("./smoothScroll");
@@ -279,7 +279,7 @@ var smoothTarget = function () {
     TRIGGERS.push(NAV_BRAND);
     smoothTrigger(TRIGGERS);
 }();
-},{"./smoothScroll":45}],40:[function(require,module,exports) {
+},{"./smoothScroll":44}],39:[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var highlight = function () {
@@ -313,21 +313,23 @@ var highlight = function () {
             }
         }
 
-        var activeSectionData = activeSection.id;
+        if (activeSection) {
+            var activeSectionData = activeSection.id;
 
-        for (var _i2 = 0; _i2 < highlightNavArray.length; _i2++) {
-            var element = highlightNavArray[_i2];
+            for (var _i2 = 0; _i2 < highlightNavArray.length; _i2++) {
+                var element = highlightNavArray[_i2];
 
-            if (element.data == activeSectionData) {
-                highlightNavArray.forEach(function (item) {
-                    item.item.classList.remove('nav__link--is-active');
-                });
-                element.item.classList.add('nav__link--is-active');
+                if (element.data == activeSectionData) {
+                    highlightNavArray.forEach(function (item) {
+                        item.item.classList.remove('nav__link--is-active');
+                    });
+                    element.item.classList.add('nav__link--is-active');
+                }
             }
         }
     });
 }();
-},{}],35:[function(require,module,exports) {
+},{}],34:[function(require,module,exports) {
 var mobileNavEvent = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -358,7 +360,7 @@ var mobileNavEvent = function () {
         })();
     }
 }();
-},{}],41:[function(require,module,exports) {
+},{}],40:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -446,7 +448,7 @@ function imagesSlider() {
         i = 0;
     });
 };
-},{}],42:[function(require,module,exports) {
+},{}],41:[function(require,module,exports) {
 'use strict';
 
 var _imagesSet = require('./imagesSet.js');
@@ -493,7 +495,7 @@ var projectSlider = function () {
         var i = 0;
     });
 }();
-},{"./imagesSet.js":41}],43:[function(require,module,exports) {
+},{"./imagesSet.js":40}],42:[function(require,module,exports) {
 (function dropdown() {
     var triggers = document.querySelectorAll('.dropdown > h4'),
         parents = [];
@@ -569,7 +571,7 @@ var projectSlider = function () {
         _loop2(i);
     }
 })();
-},{}],36:[function(require,module,exports) {
+},{}],35:[function(require,module,exports) {
 var getURLParameter = function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 };
@@ -607,7 +609,7 @@ require("./js/slider/projects.js");
 require("./js/dropdown/dropdown.js");
 
 require("./js/message.js");
-},{"./js/header.js":34,"./js/nav/navScroll.js":39,"./js/nav/highlight.js":40,"./js/mobilenav.js":35,"./js/slider/imagesSet.js":41,"./js/slider/projects.js":42,"./js/dropdown/dropdown.js":43,"./js/message.js":36}],99:[function(require,module,exports) {
+},{"./js/header.js":33,"./js/nav/navScroll.js":38,"./js/nav/highlight.js":39,"./js/mobilenav.js":34,"./js/slider/imagesSet.js":40,"./js/slider/projects.js":41,"./js/dropdown/dropdown.js":42,"./js/message.js":35}],90:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -637,7 +639,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51799' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52747' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -776,5 +778,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[99,2])
+},{}]},{},[90,2])
 //# sourceMappingURL=/assets.ba5aab93.map

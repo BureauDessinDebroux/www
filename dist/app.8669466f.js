@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({98:[function(require,module,exports) {
+})({62:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -107,7 +107,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],64:[function(require,module,exports) {
+},{}],45:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -138,13 +138,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":98}],3:[function(require,module,exports) {
+},{"./bundle-url":62}],3:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./../images/arrow--right--light.svg":66,"./../images/arrow--down.svg":12,"./../images/phone.svg":67,"./../images/mail.svg":68,"./../images/map.svg":69,"./../images/list__bullet--check.svg":70,"./../images/logo--background.svg":71,"./../images/logo--background--dark.svg":72,"./../images/arrow--left.svg":73,"./../images/arrow--right.svg":74,"./../images/arrow_strict--left.svg":75,"./../images/arrow_strict--right.svg":76,"./../images/dropdown__arrow.svg":77,"./../images/list__bullet--third.svg":78,"./../images/list__bullet--second.svg":79,"./../images/list__bullet--first.svg":80,"./../images/check--white.svg":81,"_css_loader":64}],101:[function(require,module,exports) {
+},{"./../images/arrow--right--light.svg":46,"./../images/arrow--down.svg":12,"./../images/phone.svg":47,"./../images/mail.svg":48,"./../images/map.svg":49,"./../images/list__bullet--check.svg":50,"./../images/logo--background.svg":51,"./../images/logo--background--dark.svg":52,"./../images/arrow--left.svg":53,"./../images/arrow--right.svg":54,"./../images/arrow_strict--left.svg":55,"./../images/arrow_strict--right.svg":56,"./../images/dropdown__arrow.svg":57,"./../images/list__bullet--third.svg":58,"./../images/list__bullet--second.svg":59,"./../images/list__bullet--first.svg":60,"./../images/check--white.svg":61,"_css_loader":45}],63:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -174,7 +174,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51799' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52747' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -313,7 +313,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}],102:[function(require,module,exports) {
+},{}],65:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -394,6 +394,6 @@ LazyPromise.prototype.catch = function (onError) {
   if (this.promise === null) this.promise = new Promise(this.executor);
   return this.promise.catch(onError);
 };
-},{"./bundle-url":98}],0:[function(require,module,exports) {
-var b=require(102);b.load([["arrow--right--light.05c4bd68.svg",66],["arrow--down.1a738b1e.svg",12],["phone.e641a8a5.svg",67],["mail.02ce3295.svg",68],["map.13d237a1.svg",69],["list__bullet--check.049a0422.svg",70],["logo--background.e43bdf7c.svg",71],["logo--background--dark.d21b578a.svg",72],["arrow--left.9ed94b57.svg",73],["arrow--right.b17159c8.svg",74],["arrow_strict--left.2187b5fa.svg",75],["arrow_strict--right.9b5217b6.svg",76],["dropdown__arrow.b770665d.svg",77],["list__bullet--third.83b74d1d.svg",78],["list__bullet--second.bdafaf45.svg",79],["list__bullet--first.13c18b26.svg",80],["check--white.5bd17f02.svg",81]]);
-},{}]},{},[101,0])
+},{"./bundle-url":62}],0:[function(require,module,exports) {
+var b=require(65);b.load([["arrow--right--light.05c4bd68.svg",46],["arrow--down.1a738b1e.svg",12],["phone.e641a8a5.svg",47],["mail.02ce3295.svg",48],["map.13d237a1.svg",49],["list__bullet--check.049a0422.svg",50],["logo--background.e43bdf7c.svg",51],["logo--background--dark.d21b578a.svg",52],["arrow--left.9ed94b57.svg",53],["arrow--right.b17159c8.svg",54],["arrow_strict--left.2187b5fa.svg",55],["arrow_strict--right.9b5217b6.svg",56],["dropdown__arrow.b770665d.svg",57],["list__bullet--third.83b74d1d.svg",58],["list__bullet--second.bdafaf45.svg",59],["list__bullet--first.13c18b26.svg",60],["check--white.5bd17f02.svg",61]]);
+},{}]},{},[63,0])

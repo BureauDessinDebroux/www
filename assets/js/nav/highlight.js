@@ -22,7 +22,7 @@ const highlight = (function() {
     window.addEventListener('scroll', () => {
         for (let i = 0; i < sections.length; i++) {
             let section = sections[i],
-                sectionData = section.id,            
+                sectionData = section.id,
                 bounding  = section.getBoundingClientRect();
 
             if(bounding.top <= 0) {
@@ -30,16 +30,18 @@ const highlight = (function() {
             }            
         }
         
-        let activeSectionData = activeSection.id;
-        
-        for (let i = 0; i < highlightNavArray.length; i++) {
-            const element = highlightNavArray[i];
-            
-            if (element.data == activeSectionData) {
-                highlightNavArray.forEach(item => {
-                    item.item.classList.remove('nav__link--is-active');
-                });
-                element.item.classList.add('nav__link--is-active')
+        if(activeSection) {
+            let activeSectionData = activeSection.id;
+
+            for (let i = 0; i < highlightNavArray.length; i++) {
+                const element = highlightNavArray[i];
+                
+                if (element.data == activeSectionData) {
+                    highlightNavArray.forEach(item => {
+                        item.item.classList.remove('nav__link--is-active');
+                    });
+                    element.item.classList.add('nav__link--is-active')
+                }
             }
         }
     })   
