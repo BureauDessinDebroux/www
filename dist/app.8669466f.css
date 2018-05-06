@@ -211,6 +211,24 @@ input::placeholder {
     color: #404652;
     font-size: 1.8rem; } }
 
+.progress {
+  stroke: white;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transform: rotate(-90deg);
+  transform-origin: center center; }
+  .progress--guide {
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0; }
+  .progress__wrapper {
+    position: relative;
+    display: flex; }
+
+#test {
+  transform: translate(11px, 10px);
+  opacity: 0.3; }
+
 .nav__trigger {
   position: fixed;
   top: 2rem;
@@ -337,9 +355,7 @@ body.no-scroll, html.no-scroll {
         display: flex;
         margin: auto 2rem auto auto;
         width: 3.5rem;
-        height: 3.5rem;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.3); }
+        height: 3.5rem; }
         .nav__scroll--inner > img {
           margin: auto;
           max-height: 1.2rem; }

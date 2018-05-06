@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({43:[function(require,module,exports) {
+})({85:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -106,7 +106,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],33:[function(require,module,exports) {
+},{}],75:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -152,7 +152,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":43}],44:[function(require,module,exports) {
+},{"./helpers.js":85}],86:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function scrollIt(destination) {
 
     scroll();
 }
-},{}],38:[function(require,module,exports) {
+},{}],80:[function(require,module,exports) {
 "use strict";
 
 var _smoothScroll = require("./smoothScroll");
@@ -279,7 +279,32 @@ var smoothTarget = function () {
     TRIGGERS.push(NAV_BRAND);
     smoothTrigger(TRIGGERS);
 }();
-},{"./smoothScroll":44}],39:[function(require,module,exports) {
+
+/*
+* ====================================================
+* PROGRESS SCROLL
+* ====================================================
+*/
+
+var scrollProgress = function scrollProgress() {
+
+    var progressIndicator = document.querySelector('.progress'),
+        length = progressIndicator.getTotalLength(),
+        height = document.querySelector('body').clientHeight,
+        i = 0;
+
+    document.addEventListener('scroll', function () {
+        var starter = (height - window.innerHeight) / (height - window.innerHeight) * 100,
+            value = pageYOffset / (height - window.innerHeight) * 100;
+
+        progressIndicator.style.strokeDashoffset = starter - value;
+
+        console.log(height, window.innerHeight);
+    });
+};
+
+scrollProgress();
+},{"./smoothScroll":86}],81:[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var highlight = function () {
@@ -329,7 +354,7 @@ var highlight = function () {
         }
     });
 }();
-},{}],34:[function(require,module,exports) {
+},{}],76:[function(require,module,exports) {
 var mobileNavEvent = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -360,7 +385,7 @@ var mobileNavEvent = function () {
         })();
     }
 }();
-},{}],40:[function(require,module,exports) {
+},{}],82:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -448,7 +473,7 @@ function imagesSlider() {
         i = 0;
     });
 };
-},{}],41:[function(require,module,exports) {
+},{}],83:[function(require,module,exports) {
 'use strict';
 
 var _imagesSet = require('./imagesSet.js');
@@ -495,7 +520,7 @@ var projectSlider = function () {
         var i = 0;
     });
 }();
-},{"./imagesSet.js":40}],42:[function(require,module,exports) {
+},{"./imagesSet.js":82}],84:[function(require,module,exports) {
 (function dropdown() {
     var triggers = document.querySelectorAll('.dropdown > h4'),
         parents = [];
@@ -571,7 +596,7 @@ var projectSlider = function () {
         _loop2(i);
     }
 })();
-},{}],35:[function(require,module,exports) {
+},{}],77:[function(require,module,exports) {
 var getURLParameter = function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 };
@@ -591,7 +616,7 @@ var messageFeedback = function messageFeedback() {
 };
 
 messageFeedback();
-},{}],2:[function(require,module,exports) {
+},{}],45:[function(require,module,exports) {
 "use strict";
 
 require("./js/header.js");
@@ -609,7 +634,7 @@ require("./js/slider/projects.js");
 require("./js/dropdown/dropdown.js");
 
 require("./js/message.js");
-},{"./js/header.js":33,"./js/nav/navScroll.js":38,"./js/nav/highlight.js":39,"./js/mobilenav.js":34,"./js/slider/imagesSet.js":40,"./js/slider/projects.js":41,"./js/dropdown/dropdown.js":42,"./js/message.js":35}],90:[function(require,module,exports) {
+},{"./js/header.js":75,"./js/nav/navScroll.js":80,"./js/nav/highlight.js":81,"./js/mobilenav.js":76,"./js/slider/imagesSet.js":82,"./js/slider/projects.js":83,"./js/dropdown/dropdown.js":84,"./js/message.js":77}],106:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -639,7 +664,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52747' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '62564' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -778,5 +803,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[90,2])
+},{}]},{},[106,45])
 //# sourceMappingURL=/assets.ba5aab93.map

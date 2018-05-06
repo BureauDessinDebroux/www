@@ -1,0 +1,25 @@
+.progress {
+    stroke: rgba(white, 1);
+
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+
+    transform: rotate(-90deg);
+    transform-origin: center center;
+
+    &--guide {
+        stroke: rgba(white, 0.3);        
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+    }
+}
+
+#test {
+    transform: translate(11px, 10px);
+    opacity: 0.3;
+}
