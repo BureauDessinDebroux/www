@@ -55,8 +55,6 @@ const scrollProgress = function() {
             value = pageYOffset / (height - window.innerHeight) * 100;
 
         progressIndicator.style.strokeDashoffset = starter - value;
-
-        console.log(height, window.innerHeight)
     })
 
 }

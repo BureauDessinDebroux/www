@@ -1,10 +1,3 @@
-const width = (function() {
-    window.addEventListener('resize', function(event){
-        console.log(window.innerWidth);
-    });
-
-})();
-
 const mobileNavEvent = (function() {
     let trigger = document.querySelector('.nav__trigger'),
         nav     = document.querySelector('.nav'),
@@ -25,7 +18,8 @@ const mobileNavEvent = (function() {
         }
 
         // MOBILE NAV OPENING & CLOSING ACTION
-        const mobileNavAction = function() {     
+        const mobileNavAction = function() {
+            event.preventDefault();
             trigger.classList.contains('hamburger__wrapper--is-active') ? trigger.classList.remove('hamburger__wrapper--is-active') : trigger.classList.add('hamburger__wrapper--is-active');
             nav.classList.contains('nav--is-visible') ? nav.classList.remove('nav--is-visible') : nav.classList.add('nav--is-visible');
             html.classList.contains('no-scroll') ? html.classList.remove('no-scroll') : html.classList.add('no-scroll');
