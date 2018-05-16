@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({135:[function(require,module,exports) {
+})({42:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -106,7 +106,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],117:[function(require,module,exports) {
+},{}],32:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -152,7 +152,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":135}],154:[function(require,module,exports) {
+},{"./helpers.js":42}],43:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function scrollIt(destination) {
 
     scroll();
 }
-},{}],120:[function(require,module,exports) {
+},{}],37:[function(require,module,exports) {
 "use strict";
 
 var _smoothScroll = require("./smoothScroll");
@@ -303,8 +303,14 @@ var scrollProgress = function scrollProgress() {
     });
 };
 
-scrollProgress();
-},{"./smoothScroll":154}],121:[function(require,module,exports) {
+var isSafari = /constructor/i.test(window.HTMLElement) || function (p) {
+    return p.toString() === "[object SafariRemoteNotification]";
+}(!window['safari'] || typeof safari !== 'undefined' && safari.pushNotification);
+
+if (!isSafari) {
+    scrollProgress();
+}
+},{"./smoothScroll":43}],38:[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var highlight = function () {
@@ -354,7 +360,13 @@ var highlight = function () {
         }
     });
 }();
-},{}],118:[function(require,module,exports) {
+},{}],33:[function(require,module,exports) {
+var width = function () {
+    window.addEventListener('resize', function (event) {
+        console.log(window.innerWidth);
+    });
+}();
+
 var mobileNavEvent = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -377,7 +389,6 @@ var mobileNavEvent = function () {
 
             // MOBILE NAV OPENING & CLOSING ACTION
             var mobileNavAction = function mobileNavAction() {
-                event.preventDefault();
                 trigger.classList.contains('hamburger__wrapper--is-active') ? trigger.classList.remove('hamburger__wrapper--is-active') : trigger.classList.add('hamburger__wrapper--is-active');
                 nav.classList.contains('nav--is-visible') ? nav.classList.remove('nav--is-visible') : nav.classList.add('nav--is-visible');
                 html.classList.contains('no-scroll') ? html.classList.remove('no-scroll') : html.classList.add('no-scroll');
@@ -385,7 +396,7 @@ var mobileNavEvent = function () {
         })();
     }
 }();
-},{}],122:[function(require,module,exports) {
+},{}],39:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -473,7 +484,7 @@ function imagesSlider() {
         i = 0;
     });
 };
-},{}],123:[function(require,module,exports) {
+},{}],40:[function(require,module,exports) {
 'use strict';
 
 var _imagesSet = require('./imagesSet.js');
@@ -520,7 +531,7 @@ var projectSlider = function () {
         var i = 0;
     });
 }();
-},{"./imagesSet.js":122}],124:[function(require,module,exports) {
+},{"./imagesSet.js":39}],41:[function(require,module,exports) {
 (function dropdown() {
     var triggers = document.querySelectorAll('.dropdown > h4'),
         parents = [];
@@ -596,7 +607,7 @@ var projectSlider = function () {
         _loop2(i);
     }
 })();
-},{}],119:[function(require,module,exports) {
+},{}],34:[function(require,module,exports) {
 var getURLParameter = function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 };
@@ -616,7 +627,7 @@ var messageFeedback = function messageFeedback() {
 };
 
 messageFeedback();
-},{}],45:[function(require,module,exports) {
+},{}],2:[function(require,module,exports) {
 "use strict";
 
 require("./js/header.js");
@@ -634,7 +645,7 @@ require("./js/slider/projects.js");
 require("./js/dropdown/dropdown.js");
 
 require("./js/message.js");
-},{"./js/header.js":117,"./js/nav/navScroll.js":120,"./js/nav/highlight.js":121,"./js/mobilenav.js":118,"./js/slider/imagesSet.js":122,"./js/slider/projects.js":123,"./js/dropdown/dropdown.js":124,"./js/message.js":119}],156:[function(require,module,exports) {
+},{"./js/header.js":32,"./js/nav/navScroll.js":37,"./js/nav/highlight.js":38,"./js/mobilenav.js":33,"./js/slider/imagesSet.js":39,"./js/slider/projects.js":40,"./js/dropdown/dropdown.js":41,"./js/message.js":34}],103:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -664,7 +675,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49565' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58488' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -803,5 +814,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[156,45])
+},{}]},{},[103,2])
 //# sourceMappingURL=/assets.ba5aab93.map
