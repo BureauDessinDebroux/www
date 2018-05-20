@@ -42,13 +42,16 @@ if(isset($_POST['name'])) {
             $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
             $SUBJECT    = "[bureaudessindebroux.be] Message reçu de $NAME ($EMAIL)";
     
-            // MAIL SERVICE
             if($LEGAL == true) {
+                // MAIL SERVICE
                 mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
+
+                // REDIRECTION
+                header('Location: index.html?message=message sent#target--contact');
+            } else {
+                // REDIRECTION
+                header('Location: index.html?message=legal error#target--contact');
             }
-            
-            // REDIRECTION
-            header('Location: index.html?message=message sent#target--contact');
             
         }
         
