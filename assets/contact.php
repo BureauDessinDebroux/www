@@ -4,7 +4,7 @@ if(isset($_POST['name'])) {
 
     // define variables and set to empty values
     $ERR_NAME = $ERR_EMAIL = $ERR_MESSAGE = $ERR_LEGAL = "";
-    $NAME = $EMAIL = $MESSAGE = "";
+    $NAME = $EMAIL = $MESSAGE = $LEGAL = "";
     $honeypot = false;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +34,7 @@ if(isset($_POST['name'])) {
             if(empty($_POST["legal"])) {
                 $ERR_MESSAGE = "Veuillez lire et acceptez les conditions générales d'utilisation";
             } else {
-                $MESSAGE = test_input($_POST["legal"]);
+                $LEGAL = true;
             }
     
             // CONFIGURATION
@@ -43,7 +43,9 @@ if(isset($_POST['name'])) {
             $SUBJECT    = "[bureaudessindebroux.be] Message reçu de $NAME ($EMAIL)";
     
             // MAIL SERVICE
-            mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
+            if($LEGAL == true) {
+                mail($RECIEVER, $SUBJECT, $MESSAGE, $FROM);
+            }
             
             // REDIRECTION
             header('Location: index.html?message=message sent#target--contact');
