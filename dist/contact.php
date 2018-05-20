@@ -3,7 +3,7 @@
 if(isset($_POST['name'])) {
 
     // define variables and set to empty values
-    $ERR_NAME = $ERR_EMAIL = $ERR_MESSAGE = "";
+    $ERR_NAME = $ERR_EMAIL = $ERR_MESSAGE = $ERR_LEGAL = "";
     $NAME = $EMAIL = $MESSAGE = "";
     $honeypot = false;
 
@@ -17,23 +17,28 @@ if(isset($_POST['name'])) {
         } else {
 
             if(empty($_POST["name"])) {
-                $ERR_NAME = "Manque le nom";
+                $ERR_NAME = "Il manque le nom";
             } else {
                 $NAME = test_input($_POST["name"]);
             }
             if(empty($_POST["name"])) {
-                $ERR_MAIL = "Manque le mail";
+                $ERR_MAIL = "Il manque le mail";
             } else {
                 $EMAIL = test_input($_POST["email"]);
             }
             if(empty($_POST["name"])) {
-                $ERR_MESSAGE = "Manque le message";
+                $ERR_MESSAGE = "Il manque le message";
             } else {
                 $MESSAGE = test_input($_POST["message"]);
             }
+            if(empty($_POST["legal"])) {
+                $ERR_MESSAGE = "Veuillez lire et acceptez les conditions générales d'utilisation";
+            } else {
+                $MESSAGE = test_input($_POST["legal"]);
+            }
     
             // CONFIGURATION
-            $RECIEVER   = "bureaudessindebroux@gmail.com";
+            $RECIEVER   = "wollsale@gmail.com";
             $FROM       = "From: $NAME <$EMAIL>\r\nReturn-path: $EMAIL";
             $SUBJECT    = "[bureaudessindebroux.be] Message reçu de $NAME ($EMAIL)";
     
