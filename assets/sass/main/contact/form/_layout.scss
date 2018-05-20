@@ -1,4 +1,5 @@
 @import 'submit';
+@import 'legal';
 
 .form {
     margin-top: 10rem;
@@ -33,29 +34,6 @@
         &:focus {
             outline: none;
             background: darken($TERTIARY_COLOR, 3%);
-        }
-
-        &--submit {
-            grid-column: 1 / 6 !important;
-            @include media(tablet-large) {
-                grid-column: 1 / 4 !important;
-            }
-
-            background-color: $PRIMARY_COLOR;
-            color: #FFFFFF;
-            cursor: pointer;
-
-            padding-left: calc((100% / 3) * 1);
-            text-align: left;
-            font-family: $MAIN_FONT;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-
-            margin-bottom: 0;
-
-            &:focus {
-                background-color: darken($PRIMARY_COLOR, 3%);
-            }
         }
     }
 

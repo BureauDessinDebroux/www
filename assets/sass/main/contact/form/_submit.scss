@@ -9,6 +9,57 @@
 
             background-color: darken($PRIMARY_COLOR, 4%) !important;
         }
+
+        &--submit {
+            background: transparent !important;
+            color: #FFFFFF;
+            
+            cursor: pointer;
+            
+            width: 100%; height: 100%;
+            padding-left: calc((100% / 3) * 1) !important;
+
+            text-align: left;
+            font-family: $MAIN_FONT;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 0 !important;
+
+            &:focus {
+                background-color: darken($PRIMARY_COLOR, 3%);
+            }
+        }
+    }
+
+    &__submit {
+        &--wrapper {
+            grid-column: 1 / 6 !important;
+            @include media(tablet-large) {
+                grid-column: 1 / 4 !important;
+            }
+
+            background-color: $PRIMARY_COLOR;
+
+            position: relative;
+            z-index: 0;
+
+            &::after {
+                display: block; content: '';
+                width: 0%; height: 100%;
+                background: darken($PRIMARY_COLOR, 5%);
+
+                position: absolute;
+                top: 0; left: 0;
+                z-index: -1;
+                transition: width .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
 
