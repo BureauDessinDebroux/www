@@ -1471,6 +1471,52 @@ header {
       display: grid;
       grid-template-columns: repeat(12, 1fr); } }
 
+.signature {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: #404652; }
+  .signature .index {
+    margin: auto; }
+    .signature .index__item {
+      list-style: none;
+      margin: 0 auto;
+      text-align: center; }
+    .signature .index__link {
+      text-align: center;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 300;
+      display: inline-block;
+      margin: 1rem 0;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 40px;
+      padding: .6rem 2rem;
+      transition: all .1s linear; }
+      .signature .index__link:hover {
+        border-color: white; }
+
+.signature.single {
+  flex-direction: column;
+  background-color: #fff; }
+  .signature.single .wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh; }
+    .signature.single .wrapper table {
+      margin: auto !important; }
+  .signature.single .btn {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 15px;
+    background-color: #F76C4B;
+    color: white;
+    border: none;
+    cursor: pointer; }
+
 body {
   display: grid;
   grid-template-columns: 1fr; }

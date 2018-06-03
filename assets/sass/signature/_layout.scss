@@ -1,0 +1,71 @@
+$indexColor : white;
+$indexBackground : $blue;
+
+.signature {
+    width: 100%; height: 100vh;
+    display: flex;
+
+    background-color: $indexBackground;
+
+    .index {
+        margin: auto;
+
+        &__item {
+            list-style: none;
+            margin: 0 auto;
+            text-align: center;
+        }
+        &__link {
+            text-align: center;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 300;
+
+            display: inline-block;
+            margin: 1rem 0;
+            
+            color: $indexColor;
+            border: 1px solid rgba($indexColor, .4);
+            border-radius: 40px;
+            padding: .6rem 2rem;
+
+            transition: all .1s linear;
+
+            &:hover {
+                border-color: rgba($indexColor, 1);
+            }
+        }
+    }
+}
+
+
+
+
+.signature.single {
+    flex-direction: column;
+    background-color: #fff;
+
+    .wrapper {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+
+        table {
+            margin: auto !important;
+        }
+    }
+
+    .btn {
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        
+        padding: 15px;
+
+        background-color: $orange;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+}

@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({163:[function(require,module,exports) {
+})({46:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -106,7 +106,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],134:[function(require,module,exports) {
+},{}],34:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -152,7 +152,7 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":163}],164:[function(require,module,exports) {
+},{"./helpers.js":46}],47:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -240,7 +240,7 @@ function scrollIt(destination) {
 
     scroll();
 }
-},{}],138:[function(require,module,exports) {
+},{}],39:[function(require,module,exports) {
 "use strict";
 
 var _smoothScroll = require("./smoothScroll");
@@ -279,7 +279,7 @@ var smoothTarget = function () {
     TRIGGERS.push(NAV_BRAND);
     smoothTrigger(TRIGGERS);
 }();
-},{"./smoothScroll":164}],139:[function(require,module,exports) {
+},{"./smoothScroll":47}],40:[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var highlight = function () {
@@ -329,7 +329,7 @@ var highlight = function () {
         }
     });
 }();
-},{}],140:[function(require,module,exports) {
+},{}],41:[function(require,module,exports) {
 /*
 * ====================================================
 * PROGRESS SCROLL
@@ -359,7 +359,7 @@ var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 if (!isSafari && !isFirefox) {
     scrollProgress();
 }
-},{}],135:[function(require,module,exports) {
+},{}],35:[function(require,module,exports) {
 var mobileNavEvent = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -390,7 +390,7 @@ var mobileNavEvent = function () {
         })();
     }
 }();
-},{}],141:[function(require,module,exports) {
+},{}],42:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -478,7 +478,7 @@ function imagesSlider() {
         i = 0;
     });
 };
-},{}],142:[function(require,module,exports) {
+},{}],44:[function(require,module,exports) {
 'use strict';
 
 var _imagesSet = require('./imagesSet.js');
@@ -525,7 +525,7 @@ var projectSlider = function () {
         var i = 0;
     });
 }();
-},{"./imagesSet.js":141}],143:[function(require,module,exports) {
+},{"./imagesSet.js":42}],43:[function(require,module,exports) {
 (function dropdown() {
     var triggers = document.querySelectorAll('.dropdown > h4'),
         parents = [];
@@ -601,7 +601,7 @@ var projectSlider = function () {
         _loop2(i);
     }
 })();
-},{}],137:[function(require,module,exports) {
+},{}],36:[function(require,module,exports) {
 var getURLParameter = function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 };
@@ -626,7 +626,7 @@ var messageFeedback = function messageFeedback() {
 };
 
 messageFeedback();
-},{}],47:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
 "use strict";
 
 require("./js/header.js");
@@ -646,7 +646,7 @@ require("./js/slider/projects.js");
 require("./js/dropdown/dropdown.js");
 
 require("./js/message.js");
-},{"./js/header.js":134,"./js/nav/navScroll.js":138,"./js/nav/highlight.js":139,"./js/nav/progress.js":140,"./js/mobilenav.js":135,"./js/slider/imagesSet.js":141,"./js/slider/projects.js":142,"./js/dropdown/dropdown.js":143,"./js/message.js":137}],166:[function(require,module,exports) {
+},{"./js/header.js":34,"./js/nav/navScroll.js":39,"./js/nav/highlight.js":40,"./js/nav/progress.js":41,"./js/mobilenav.js":35,"./js/slider/imagesSet.js":42,"./js/slider/projects.js":44,"./js/dropdown/dropdown.js":43,"./js/message.js":36}],87:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -676,7 +676,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54807' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '57322' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -815,5 +815,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[166,47])
+},{}]},{},[87,3])
 //# sourceMappingURL=/assets.ba5aab93.map
