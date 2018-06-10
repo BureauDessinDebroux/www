@@ -20,9 +20,11 @@ const scrollProgress = function() {
 
 }
 
-var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+var isSafari  = navigator.userAgent.indexOf("Safari") != -1;
 var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
-if(!isSafari && !isFirefox) {
-    scrollProgress();    
+if(window.matchMedia("(min-width: 1024px)").matches) {
+    if(!isSafari && !isFirefox) {
+        scrollProgress();
+    }
 }
