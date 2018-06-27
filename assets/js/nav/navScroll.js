@@ -9,6 +9,7 @@ const smoothScroll = (function() {
         const element = triggers[i];
         element.addEventListener('click', (e) => {
             let target = '#' + element.href.substring(element.href.indexOf("#") + 1);
+            console.log(target);
             jump(target)
         })
     }
