@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({171:[function(require,module,exports) {
+})({78:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -106,7 +106,7 @@ function getPosition(element) {
 
     return { x: xPosition, y: yPosition };
 };
-},{}],135:[function(require,module,exports) {
+},{}],58:[function(require,module,exports) {
 'use strict';
 
 var _helpers = require('./helpers.js');
@@ -152,134 +152,243 @@ var stickyHeader = function stickyHeader() {
 };
 
 stickyHeader();
-},{"./helpers.js":171}],173:[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.scrollIt = scrollIt;
-function scrollIt(destination) {
-    var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
-    var easing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'linear';
-    var callback = arguments[3];
-
-    var easings = {
-        linear: function linear(t) {
-            return t;
-        },
-        easeInQuad: function easeInQuad(t) {
-            return t * t;
-        },
-        easeOutQuad: function easeOutQuad(t) {
-            return t * (2 - t);
-        },
-        easeInOutQuad: function easeInOutQuad(t) {
-            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        },
-        easeInCubic: function easeInCubic(t) {
-            return t * t * t;
-        },
-        easeOutCubic: function easeOutCubic(t) {
-            return --t * t * t + 1;
-        },
-        easeInOutCubic: function easeInOutCubic(t) {
-            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        },
-        easeInQuart: function easeInQuart(t) {
-            return t * t * t * t;
-        },
-        easeOutQuart: function easeOutQuart(t) {
-            return 1 - --t * t * t * t;
-        },
-        easeInOutQuart: function easeInOutQuart(t) {
-            return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
-        },
-        easeInQuint: function easeInQuint(t) {
-            return t * t * t * t * t;
-        },
-        easeOutQuint: function easeOutQuint(t) {
-            return 1 + --t * t * t * t * t;
-        },
-        easeInOutQuint: function easeInOutQuint(t) {
-            return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
-        }
-    };
-
-    var start = window.pageYOffset;
-    var startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-
-    var documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-    var destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
-    var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset + 20);
-
-    if ('requestAnimationFrame' in window === false) {
-        window.scroll(0, destinationOffsetToScroll);
-        if (callback) {
-            callback();
-        }
-        return;
-    }
-
-    function scroll() {
-        var now = 'now' in window.performance ? performance.now() : new Date().getTime();
-        var time = Math.min(1, (now - startTime) / duration);
-        var timeFunction = easings[easing](time);
-        window.scroll(0, Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start));
-
-        if (window.pageYOffset === destinationOffsetToScroll) {
-            if (callback) {
-                callback();
-            }
-            return;
-        }
-
-        requestAnimationFrame(scroll);
-    }
-
-    scroll();
-}
-},{}],139:[function(require,module,exports) {
+},{"./helpers.js":78}],80:[function(require,module,exports) {
 "use strict";
 
-var _smoothScroll = require("./smoothScroll");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// Robert Penner's easeInOutQuad
 
-var smoothTrigger = function smoothTrigger(target) {
+// find the rest of his easing functions here: http://robertpenner.com/easing/
+// find them exported for ES6 consumption here: https://github.com/jaxgeller/ez.js
+
+var easeInOutQuad = function easeInOutQuad(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return c / 2 * t * t + b;
+  t--;
+  return -c / 2 * (t * (t - 2) - 1) + b;
+};
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+  return typeof obj;
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+
+var jumper = function jumper() {
+  // private variable cache
+  // no variables are created during a jump, preventing memory leaks
+
+  var element = void 0; // element to scroll to                   (node)
+
+  var start = void 0; // where scroll starts                    (px)
+  var stop = void 0; // where scroll stops                     (px)
+
+  var offset = void 0; // adjustment from the stop position      (px)
+  var easing = void 0; // easing function                        (function)
+  var a11y = void 0; // accessibility support flag             (boolean)
+
+  var distance = void 0; // distance of scroll                     (px)
+  var duration = void 0; // scroll duration                        (ms)
+
+  var timeStart = void 0; // time scroll started                    (ms)
+  var timeElapsed = void 0; // time spent scrolling thus far          (ms)
+
+  var next = void 0; // next scroll position                   (px)
+
+  var callback = void 0; // to call when done scrolling            (function)
+
+  // scroll position helper
+
+  function location() {
+    return window.scrollY || window.pageYOffset;
+  }
+
+  // element offset helper
+
+  function top(element) {
+    return element.getBoundingClientRect().top + start;
+  }
+
+  // rAF loop helper
+
+  function loop(timeCurrent) {
+    // store time scroll started, if not started already
+    if (!timeStart) {
+      timeStart = timeCurrent;
+    }
+
+    // determine time spent scrolling so far
+    timeElapsed = timeCurrent - timeStart;
+
+    // calculate next scroll position
+    next = easing(timeElapsed, start, distance, duration);
+
+    // scroll to it
+    window.scrollTo(0, next);
+
+    // check progress
+    timeElapsed < duration ? window.requestAnimationFrame(loop) // continue scroll loop
+    : done(); // scrolling is done
+  }
+
+  // scroll finished helper
+
+  function done() {
+    // account for rAF time rounding inaccuracies
+    window.scrollTo(0, start + distance);
+
+    // if scrolling to an element, and accessibility is enabled
+    if (element && a11y) {
+      // add tabindex indicating programmatic focus
+      element.setAttribute('tabindex', '-1');
+
+      // focus the element
+      element.focus();
+    }
+
+    // if it exists, fire the callback
+    if (typeof callback === 'function') {
+      callback();
+    }
+
+    // reset time for next jump
+    timeStart = false;
+  }
+
+  // API
+
+  function jump(target) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    // resolve options, or use defaults
+    duration = options.duration || 1000;
+    offset = options.offset || 0;
+    callback = options.callback; // "undefined" is a suitable default, and won't be called
+    easing = options.easing || easeInOutQuad;
+    a11y = options.a11y || false;
+
+    // cache starting position
+    start = location();
+
+    // resolve target
+    switch (typeof target === 'undefined' ? 'undefined' : _typeof(target)) {
+      // scroll from current position
+      case 'number':
+        element = undefined; // no element to scroll to
+        a11y = false; // make sure accessibility is off
+        stop = start + target;
+        break;
+
+      // scroll to element (node)
+      // bounding rect is relative to the viewport
+      case 'object':
+        element = target;
+        stop = top(element);
+        break;
+
+      // scroll to element (selector)
+      // bounding rect is relative to the viewport
+      case 'string':
+        element = document.querySelector(target);
+        stop = top(element);
+        break;
+    }
+
+    // resolve scroll distance, accounting for offset
+    distance = stop - start + offset;
+
+    // resolve duration
+    switch (_typeof(options.duration)) {
+      // number in ms
+      case 'number':
+        duration = options.duration;
+        break;
+
+      // function passed the distance of the scroll
+      case 'function':
+        duration = options.duration(distance);
+        break;
+    }
+
+    // start the loop
+    window.requestAnimationFrame(loop);
+  }
+
+  // expose only the jump method
+  return jump;
+};
+
+// export singleton
+
+var singleton = jumper();
+
+exports.default = singleton;
+},{}],61:[function(require,module,exports) {
+'use strict';
+
+var _jump = require('jump.js');
+
+var _jump2 = _interopRequireDefault(_jump);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var smoothScroll = function () {
+
+    var triggers = document.querySelectorAll('.nav__link'),
+        link = {};
+
     var _loop = function _loop(i) {
-        var element = target[i];
-
-        element.addEventListener('click', function () {
-            var target = element.getAttribute("href");
-            target = document.querySelector(target);
-
-            (0, _smoothScroll.scrollIt)(target, 300, 'easeOutQuad');
+        var element = triggers[i];
+        element.addEventListener('click', function (e) {
+            var target = '#' + element.href.substring(element.href.indexOf("#") + 1);
+            (0, _jump2.default)(target);
         });
     };
 
-    for (var i = 0; i < target.length; i++) {
+    for (var i = 0; i < triggers.length; i++) {
         _loop(i);
     }
-};
-
-var smoothTarget = function () {
-    var NAV_LINKS = document.querySelectorAll('.nav__link'),
-        NAV_BRAND = document.querySelector('.nav__brand'),
-        MOBILE_LINKS = document.querySelectorAll('header .cta__item > a'),
-        TRIGGERS = [];
-
-    for (var i = 0; i < NAV_LINKS.length; i++) {
-        TRIGGERS.push(NAV_LINKS[i]);
-    }
-
-    for (var _i = 0; _i < MOBILE_LINKS.length; _i++) {
-        TRIGGERS.push(MOBILE_LINKS[_i]);
-    }
-
-    TRIGGERS.push(NAV_BRAND);
-    smoothTrigger(TRIGGERS);
 }();
-},{"./smoothScroll":173}],140:[function(require,module,exports) {
+
+// import { scrollIt } from "./smoothScroll";
+
+// const smoothTrigger = function(target) {
+//     for (let i = 0; i < target.length; i++) {
+//         const element = target[i];
+
+//         element.addEventListener('click', () => {
+//             let target = element.getAttribute("href");
+//                 target = document.querySelector(target);
+
+//             scrollIt (
+//                 target,
+//                 300,
+//                 'easeOutQuad'
+//             );
+//         });
+//     }
+// }
+
+// const smoothTarget = (function() {
+//     let NAV_LINKS       = document.querySelectorAll('.nav__link'),
+//         NAV_BRAND       = document.querySelector('.nav__brand'),
+//         MOBILE_LINKS    = document.querySelectorAll('header .cta__item > a'),
+//         TRIGGERS        = [];
+
+//     for (let i = 0; i < NAV_LINKS.length; i++) {
+//         TRIGGERS.push(NAV_LINKS[i]);
+//     }
+
+//     for (let i = 0; i < MOBILE_LINKS.length; i++) {
+//         TRIGGERS.push(MOBILE_LINKS[i]);
+//     }
+
+//     TRIGGERS.push(NAV_BRAND);
+//     smoothTrigger(TRIGGERS);
+// })();
+},{"jump.js":80}],62:[function(require,module,exports) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var highlight = function () {
@@ -329,7 +438,7 @@ var highlight = function () {
         }
     });
 }();
-},{}],189:[function(require,module,exports) {
+},{}],63:[function(require,module,exports) {
 /*
 * ====================================================
 * PROGRESS SCROLL
@@ -359,7 +468,7 @@ if (window.matchMedia("(min-width: 1024px)").matches) {
         scrollProgress();
     }
 }
-},{}],136:[function(require,module,exports) {
+},{}],59:[function(require,module,exports) {
 var mobileNavEvent = function () {
     var trigger = document.querySelector('.nav__trigger'),
         nav = document.querySelector('.nav'),
@@ -390,7 +499,7 @@ var mobileNavEvent = function () {
         })();
     }
 }();
-},{}],142:[function(require,module,exports) {
+},{}],64:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -478,7 +587,7 @@ function imagesSlider() {
         i = 0;
     });
 };
-},{}],143:[function(require,module,exports) {
+},{}],65:[function(require,module,exports) {
 'use strict';
 
 var _imagesSet = require('./imagesSet.js');
@@ -525,7 +634,7 @@ var projectSlider = function () {
         var i = 0;
     });
 }();
-},{"./imagesSet.js":142}],145:[function(require,module,exports) {
+},{"./imagesSet.js":64}],66:[function(require,module,exports) {
 (function dropdown() {
     var triggers = document.querySelectorAll('.dropdown > h4'),
         parents = [];
@@ -601,7 +710,7 @@ var projectSlider = function () {
         _loop2(i);
     }
 })();
-},{}],138:[function(require,module,exports) {
+},{}],60:[function(require,module,exports) {
 var getURLParameter = function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
 };
@@ -626,7 +735,7 @@ var messageFeedback = function messageFeedback() {
 };
 
 messageFeedback();
-},{}],49:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 "use strict";
 
 require("./js/header.js");
@@ -654,7 +763,7 @@ function browserDetection() {
         isFirefox = navigator.userAgent.indexOf("Firefox") != -1,
         isIE = navigator.userAgent.indexOf("MSIE") != -1 || !!document.documentMode == true;
 }
-},{"./js/header.js":135,"./js/nav/navScroll.js":139,"./js/nav/highlight.js":140,"./js/nav/progress.js":189,"./js/mobilenav.js":136,"./js/slider/imagesSet.js":142,"./js/slider/projects.js":143,"./js/dropdown/dropdown.js":145,"./js/message.js":138}],195:[function(require,module,exports) {
+},{"./js/header.js":58,"./js/nav/navScroll.js":61,"./js/nav/highlight.js":62,"./js/nav/progress.js":63,"./js/mobilenav.js":59,"./js/slider/imagesSet.js":64,"./js/slider/projects.js":65,"./js/dropdown/dropdown.js":66,"./js/message.js":60}],93:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -684,7 +793,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49566' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49983' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -823,5 +932,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[195,49])
+},{}]},{},[93,4])
 //# sourceMappingURL=/assets.ba5aab93.map
